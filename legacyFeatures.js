@@ -189,96 +189,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             let intViewportWidthContent = contentParent.getBoundingClientRect();
             // console.warn('Content view port:');
             // console.log(intViewportWidthContent.width);
-            sideBar.style.zIndex = '1';
-            // if(intViewportWidth < 1140)
 
             if(intViewportWidthContent.width < 620){
-                // console.warn('мобила!');
-
-                //Side bar mobile mech
-                sideBarMenu.style.display = 'flex';
-                sideBarMenu.style.flexDirection = 'column';
-                sideBarMenu.style.textAlign = 'center';
-                sideBarMenu.style.border = '2px solid #0076a3';
-                sideBarMenu.style.borderRadius = '5px';
-                sideBar.style.position = 'relative';
-                sideBar.style.zIndex = '1';
-
-                //Generate Open btn
-                let firstOpenItemInMenu = document.createElement('li');
-                sideBarMenu.appendChild(firstOpenItemInMenu);
-                firstOpenItemInMenu.innerHTML = `<a style="color: #0083C4 !important">Меню
-                <svg xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                aria-hidden="true" focusable="false" width="18px" height="22px"
-                style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
-                preserveAspectRatio="xMidYMid meet"
-                viewBox="3 0 18 16"><path d="M18.414 10.656a2 2 0 0 0-2.828 0L14 12.242V5a2 2 0 0 0-4 0v7.242l-1.586-1.586a2 2 0 1 0-2.828 2.828L12 19.898l6.414-6.414a2 2 0 0 0 0-2.828z" fill="#626262"/>
-                </svg></a>`;
-                firstOpenItemInMenu.style.order = '-1';
-                firstOpenItemInMenu.classList.add('sideBarOpener');
-
-                firstOpenItemInMenu.addEventListener('click', function(){
-                    contentParent.scrollIntoView({behavior: "smooth"});
-                    sideBarMenu.style.paddingTop = '90px';
-                    sideBarMenuLink.forEach(item => {
-                        let liOfa = item.parentElement;
-                        liOfa.style.display = 'block';
-                    });
-
-                    this.style.display = 'none';
-                    lastCloseItemInMenu.style.display = 'block';
-                });
-
-                // console.warn(firstOpenItemInMenu);
-
-                //Generate Close btn
-
-                let lastCloseItemInMenu = document.createElement('li');
-                sideBarMenu.appendChild(lastCloseItemInMenu);
-                lastCloseItemInMenu.innerHTML = `<a style="color: #0083C4 !important">Свернуть меню
-                <svg xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                aria-hidden="true" focusable="false" width="18px" height="22px"
-                style="-ms-transform: rotate(180deg); -webkit-transform: rotate(180deg); transform: rotate(180deg);"
-                preserveAspectRatio="xMidYMid meet"
-                viewBox="3 5 18 16"><path d="M18.414 10.656a2 2 0 0 0-2.828 0L14 12.242V5a2 2 0 0 0-4 0v7.242l-1.586-1.586a2 2 0 1 0-2.828 2.828L12 19.898l6.414-6.414a2 2 0 0 0 0-2.828z" fill="#626262"/>
-                </svg></a>`;
-                
-                lastCloseItemInMenu.classList.add('sideBarClose');
-                lastCloseItemInMenu.style.display = 'none';
-                lastCloseItemInMenu.style.border = '2px solid #0076a3';
-                lastCloseItemInMenu.style.borderRadius = '5px';
-
-                lastCloseItemInMenu.addEventListener('click', function(){
-                    sideBarMenu.style.paddingTop = '0';
-                    headerPhantom.scrollIntoView({behavior: "smooth"});
-                    sideBarMenuLink.forEach(item => {
-                        let liOfa = item.parentElement;
-                        liOfa.style.display = 'none';
-                    });
-
-                    this.style.display = 'none';
-                    firstOpenItemInMenu.style.display = 'block';
-                });
-
-                //sideBar styles
-                sideBar.classList.remove('span4');
-                sideBar.classList.add('span16');
-
-                sideBarMenuLink.forEach(item => {
-                    let liOfa = item.parentElement;
-                    liOfa.style.display = 'none';
-                });
-
-                sideBarMenu.style.padding = '0.5em 1em 1em 1em';
-                sideBar.style.height = '65px';
-
-                // sideBarMenu.appenChild(firstOpenItemInMenu);
-                
-                // console.warn(sideBar);
-
-
                 //NewsCard adaptive mobile
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
@@ -307,10 +219,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     currentReadMore.style.marginBottom = '20px';
                 }
             }else {
-                // console.warn('планшет!');
-                sideBarMenuLink.forEach(item => {
-                    item.style.fontSize = '1.3em';
-                });
             
                 categoryTitles.forEach(item => {
                     item.style.fontSize = '3.0em';
@@ -475,8 +383,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     }
 
-    //Adaptive for /shop
-    function contentBlockShop(){
+    //Adaptive for sidebarBlock
+    function sideBarAdative(){
         let contentParent = document.querySelector('#content');
         let headerPhantom = document.querySelector('.header-top__phantom');
 
@@ -495,9 +403,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
         let contentBlockTitle = contentParent.querySelector('.category-title');
         let textFromTitle = contentBlockTitle.textContent;
-        
-
-       
 
         sideBar.style.zIndex = '1';
 
@@ -601,12 +506,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     sideBarMenu.style.padding = '0.5em 1em 1em 1em';
                     sideBar.style.height = '65px';
 
-            
-
-
-                    //NewsCard adaptive mobile
-                    contentBlock.classList.remove('span12');
-                    contentBlock.classList.add('span16');
+    
 
                 }
 
@@ -617,6 +517,61 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 });
 
                 
+                contentBlockTitle.style.fontSize = '2.4em';
+                
+            }
+        } 
+
+    }
+
+    //Adaptive for /shop
+    function contentBlockShop(){
+        let contentParent = document.querySelector('#content');
+        let headerPhantom = document.querySelector('.header-top__phantom');
+
+        let sideBar = document.querySelector('.sidebar');
+        let sideBarMenu = sideBar.querySelector('.menu');
+        let sideBarMenuLink = sideBarMenu.querySelectorAll('a');
+
+
+        let shopItemParent = contentParent.querySelector('.items');
+        let shopItemsList = shopItemParent.querySelectorAll('.col-sm-4');
+        let shopItemsImg = contentParent.querySelectorAll('.b-model_image');
+        let shopItemsBlockMinHeight = contentParent.querySelectorAll('.b-model_image-thumbnail');
+        let shopItemsBlockMinHeightv2 = contentParent.querySelectorAll('.b-model_image-thumbnail_2');
+
+        let contentBlock = document.querySelector('.content-block');
+
+        let contentBlockTitle = contentParent.querySelector('.category-title');
+        let textFromTitle = contentBlockTitle.textContent;
+        
+
+       
+
+        sideBar.style.zIndex = '1';
+
+        // console.log(contentBlock);
+        // console.log(categoryTitle);
+
+        if(contentParent === null){
+            // console.log('No sidebars on the page!');
+        } else{
+            let intViewportWidthContent = contentParent.getBoundingClientRect();
+            // console.warn('Content view port:');
+            // console.log(intViewportWidthContent.width);
+            sideBar.style.zIndex = '1';
+            // if(intViewportWidth < 1140)
+
+            if(intViewportWidthContent.width < 760){
+    
+                
+                //NewsCard adaptive mobile
+                contentBlock.classList.remove('span12');
+                contentBlock.classList.add('span16');
+
+
+            }else {
+                // console.warn('планшет!');                
                 contentBlockTitle.style.fontSize = '2.4em';
                 
                 //Adaptive shop catalog items blocks
@@ -650,71 +605,86 @@ document.addEventListener("DOMContentLoaded", (event) => {
     function urlReader(){
         let currentUrl 
 
-        if (window.location.href == 'https://lr.ru/shop/type/'){
-            console.warn('This is SHOP URL');
+        if (window.location.toString().includes("https://lr.ru/shop/type")){
+            console.warn('This is shop TYPE PAGE URL');
             console.log(window.location.href);
-        
+
+      
+
             headerAdaptive();
             legacyFooterBlock();
-            
+
+            sideBarAdative();
+
+            // console.log(window.location.hostname);
+            // console.log(window.location.pathname);
+
+        }else if(window.location.toString().includes("https://lr.ru/shop")){
+            console.warn('This is shop PAGE URL');
+            console.log(window.location.href);
+
+      
+
+            headerAdaptive();
+            legacyFooterBlock();
+
+            sideBarAdative();
+            contentBlockShop(); 
+
+            // console.log(window.location.hostname);
+            // console.log(window.location.pathname);
+
+        }else if(window.location.toString().includes("https://lr.ru/")){
+            console.warn('This is home PAGE URL');
+            console.log(window.location.href);
+            headerAdaptive();
+            legacyFooterBlock();
+
+
+            sideBarAdative();
             contentBlockHome();
             helloParalaxBlock();
-
-            // console.log(window.location.hostname);
-            // console.log(window.location.pathname);
-
-        }else if (window.location.href == 'https://lr.ru/shop/'){
+            
+        }else if(window.location.toString().includes("https://lr.ru/MyLandRover")){
             console.warn('This is ARTICLE PAGE URL');
             console.log(window.location.href);
 
             headerAdaptive();
             legacyFooterBlock();
+
+            sideBarAdative();
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
             
-        }else if (window.location.href == 'https://lr.ru/MyLandRover/'){
-            console.warn('This is ARTICLE PAGE URL');
+        }else if(window.location.toString().includes("https://lr.ru/page")){
+            console.warn('This is Pages from HOME PAGE URL');
             console.log(window.location.href);
 
             headerAdaptive();
             legacyFooterBlock();
-            // console.log(window.location.hostname);
-            // console.log(window.location.pathname);
-            
-        }else if (window.location.href == 'https://lr.ru/page/'){
-            console.warn('This is ARTICLES from HOME PAGE URL');
-            console.log(window.location.href);
 
-            headerAdaptive();
-            legacyFooterBlock();
+            sideBarAdative();
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
 
-        }else if (window.location.href == 'https://lr.ru/offroad/'){
+        }else if(window.location.toString().includes("https://lr.ru/offroad")){
             console.warn('This is DEFENDER Studio PAGE URL');
             console.log(window.location.href);
 
             headerAdaptive();
             legacyFooterBlock();
+
+            sideBarAdative();
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
-        }else if (window.location.href == 'https://lr.ru/contacts/'){
+        }else if(window.location.toString().includes("https://lr.ru/contacts")){
             console.warn('This is CONTACTS PAGE URL');
             console.log(window.location.href);
 
             headerAdaptive();
-            legacyFooterBlock()
-        }else if (window.location.href == 'https://lr.ru'){
-            console.warn('This is HOME PAGE');
-            console.log(window.location.href);
-            // console.log(window.location.hostname);
-            // console.log(window.location.pathname);
-
-            headerAdaptive();
             legacyFooterBlock();
 
-            contentBlockHome();
-            helloParalaxBlock();
+            sideBarAdative();
         }
     }
 
@@ -725,6 +695,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         console.log(intViewportWidth);
         if(intViewportWidth < 1140){
             urlReader();
+
             
         } else {
             // console.warn('desktop!');
