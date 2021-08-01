@@ -520,88 +520,90 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 sideBarMenu.style.borderRadius = '5px';
                 sideBar.style.position = 'relative';
                 sideBar.style.zIndex = '1';
+
+                console.warn(textFromTitle);
+                let currentItem = sideBar.querySelector('.current');
+                let textFromCurrentItem = currentItem.textContent;
                 
+                if(textFromTitle === textFromCurrentItem){
+                    // debugger;
 
-                //Generate Open btn
-                let firstOpenItemInMenu = document.createElement('li');
-                sideBarMenu.appendChild(firstOpenItemInMenu);
-                firstOpenItemInMenu.innerHTML = `<a style="color: #555555 !important">${textFromTitle}
-                <svg
-                aria-hidden="true" focusable="false" width="18px" height="22px"
-                style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
-                preserveAspectRatio="xMidYMid meet"
-                viewBox="3 0 18 16"><path d="M18.414 10.656a2 2 0 0 0-2.828 0L14 12.242V5a2 2 0 0 0-4 0v7.242l-1.586-1.586a2 2 0 1 0-2.828 2.828L12 19.898l6.414-6.414a2 2 0 0 0 0-2.828z" fill="#626262"/>
-                </svg></a>`;
-                firstOpenItemInMenu.style.order = '-1';
-                firstOpenItemInMenu.classList.add('sideBarOpener');
+                    //Generate Open btn
+                    let firstOpenItemInMenu = document.createElement('li');
+                    sideBarMenu.appendChild(firstOpenItemInMenu);
+                    firstOpenItemInMenu.innerHTML = `<a style="color: #555555 !important">${textFromTitle}
+                    <svg
+                    aria-hidden="true" focusable="false" width="18px" height="22px"
+                    style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                    preserveAspectRatio="xMidYMid meet"
+                    viewBox="3 0 18 16"><path d="M18.414 10.656a2 2 0 0 0-2.828 0L14 12.242V5a2 2 0 0 0-4 0v7.242l-1.586-1.586a2 2 0 1 0-2.828 2.828L12 19.898l6.414-6.414a2 2 0 0 0 0-2.828z" fill="#626262"/>
+                    </svg></a>`;
+                    firstOpenItemInMenu.style.order = '-1';
+                    firstOpenItemInMenu.classList.add('sideBarOpener');
 
-                firstOpenItemInMenu.addEventListener('click', function(){
-                    contentParent.scrollIntoView({behavior: "smooth"});
-                    sideBarMenu.style.paddingTop = '90px';
-                    sideBarMenuLink.forEach(item => {
-                        let liOfa = item.parentElement;
-                        liOfa.style.display = 'block';
+                    firstOpenItemInMenu.addEventListener('click', function(){
+                        contentParent.scrollIntoView({behavior: "smooth"});
+                        sideBarMenu.style.paddingTop = '90px';
+                        sideBarMenuLink.forEach(item => {
+                            let liOfa = item.parentElement;
+                            liOfa.style.display = 'block';
+                        });
+
+                        this.style.display = 'none';
+                        lastCloseItemInMenu.style.display = 'block';
                     });
 
-                    this.style.display = 'none';
-                    lastCloseItemInMenu.style.display = 'block';
-                });
+                        
+                    //Generate Close btn
 
-                // console.warn(firstOpenItemInMenu);
+                    let lastCloseItemInMenu = document.createElement('li');
+                    sideBarMenu.appendChild(lastCloseItemInMenu);
+                    lastCloseItemInMenu.innerHTML = `<a style="color: #555555 !important">Свернуть меню
+                    <svg
+                    aria-hidden="true" focusable="false" width="18px" height="22px"
+                    style="-ms-transform: rotate(180deg); -webkit-transform: rotate(180deg); transform: rotate(180deg);"
+                    preserveAspectRatio="xMidYMid meet"
+                    viewBox="3 5 18 16"><path d="M18.414 10.656a2 2 0 0 0-2.828 0L14 12.242V5a2 2 0 0 0-4 0v7.242l-1.586-1.586a2 2 0 1 0-2.828 2.828L12 19.898l6.414-6.414a2 2 0 0 0 0-2.828z" fill="#626262"/>
+                    </svg></a>`;
+                    
+                    lastCloseItemInMenu.classList.add('sideBarClose');
+                    lastCloseItemInMenu.style.display = 'none';
+                    lastCloseItemInMenu.style.border = '2px solid #0076a3';
+                    lastCloseItemInMenu.style.borderRadius = '5px';
 
-                //Generate Close btn
+                    lastCloseItemInMenu.addEventListener('click', function(){
+                        sideBarMenu.style.paddingTop = '0';
+                        headerPhantom.scrollIntoView({behavior: "smooth"});
+                        sideBarMenuLink.forEach(item => {
+                            let liOfa = item.parentElement;
+                            liOfa.style.display = 'none';
+                        });
 
-                let lastCloseItemInMenu = document.createElement('li');
-                sideBarMenu.appendChild(lastCloseItemInMenu);
-                lastCloseItemInMenu.innerHTML = `<a style="color: #555555 !important">Свернуть меню
-                <svg
-                aria-hidden="true" focusable="false" width="18px" height="22px"
-                style="-ms-transform: rotate(180deg); -webkit-transform: rotate(180deg); transform: rotate(180deg);"
-                preserveAspectRatio="xMidYMid meet"
-                viewBox="3 5 18 16"><path d="M18.414 10.656a2 2 0 0 0-2.828 0L14 12.242V5a2 2 0 0 0-4 0v7.242l-1.586-1.586a2 2 0 1 0-2.828 2.828L12 19.898l6.414-6.414a2 2 0 0 0 0-2.828z" fill="#626262"/>
-                </svg></a>`;
-                
-                lastCloseItemInMenu.classList.add('sideBarClose');
-                lastCloseItemInMenu.style.display = 'none';
-                lastCloseItemInMenu.style.border = '2px solid #0076a3';
-                lastCloseItemInMenu.style.borderRadius = '5px';
+                        this.style.display = 'none';
+                        firstOpenItemInMenu.style.display = 'block';
+                    });
 
-                lastCloseItemInMenu.addEventListener('click', function(){
-                    sideBarMenu.style.paddingTop = '0';
-                    headerPhantom.scrollIntoView({behavior: "smooth"});
+                    //sideBar styles
+                    sideBar.classList.remove('span4');
+                    sideBar.classList.add('span16');
+
                     sideBarMenuLink.forEach(item => {
                         let liOfa = item.parentElement;
                         liOfa.style.display = 'none';
                     });
 
-                    this.style.display = 'none';
-                    firstOpenItemInMenu.style.display = 'block';
-                });
+                    sideBarMenu.style.padding = '0.5em 1em 1em 1em';
+                    sideBar.style.height = '65px';
 
-                //sideBar styles
-                sideBar.classList.remove('span4');
-                sideBar.classList.add('span16');
-
-                sideBarMenuLink.forEach(item => {
-                    let liOfa = item.parentElement;
-                    liOfa.style.display = 'none';
-                });
-
-                sideBarMenu.style.padding = '0.5em 1em 1em 1em';
-                sideBar.style.height = '65px';
-
-                // sideBarMenu.appenChild(firstOpenItemInMenu);
-                
-                // console.warn(sideBar);
+            
 
 
-                //NewsCard adaptive mobile
-                contentBlock.classList.remove('span12');
-                contentBlock.classList.add('span16');
+                    //NewsCard adaptive mobile
+                    contentBlock.classList.remove('span12');
+                    contentBlock.classList.add('span16');
 
-              
-                
-               
+                }
+
             }else {
                 // console.warn('планшет!');
                 sideBarMenuLink.forEach(item => {
