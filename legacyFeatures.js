@@ -164,6 +164,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
+     //Adaptive for contentBlockOnHomePage
     function contentBlockHome(){
         let contentParent = document.querySelector('#content');
         let headerPhantom = document.querySelector('.header-top__phantom');
@@ -332,6 +333,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         } 
     }
 
+    //Adaptive for footerBlock
     function legacyFooterBlock(){
         let footer = document.querySelector('#footer');
         // console.log(footer);
@@ -447,6 +449,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
+    //Switch numbers on page
     function numbersSwitcherHeader(){
         let headerPhantom = document.querySelector('.header-top__phantom');
 
@@ -472,6 +475,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     }
 
+    //Adaptive for /shop
     function contentBlockShop(){
         let contentParent = document.querySelector('#content');
         let headerPhantom = document.querySelector('.header-top__phantom');
@@ -527,6 +531,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 
                 if(textFromTitle === textFromCurrentItem){
                     // debugger;
+
+                    contentBlockTitle.style.display = 'none';
 
                     //Generate Open btn
                     let firstOpenItemInMenu = document.createElement('li');
@@ -639,30 +645,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 });
             }
         } 
-    }
-
-    contentBlockShop();
-
-   
-
-
-
-
-    function mainApadtiveSwitcher(){
-        let intViewportWidth = window.innerWidth;
-        console.warn('Switcher view port:');
-        console.log(intViewportWidth);
-        if(intViewportWidth < 1140){
-            // console.warn('NO DESKTOP');
-            headerAdaptive();
-            // helloParalaxBlock();
-            // contentBlockHome();
-            legacyFooterBlock();
-            
-        } else {
-            // console.warn('desktop!');
-        }
-    }
+    }   
 
     function urlReader(){
         let currentUrl 
@@ -670,36 +653,77 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if(/shop/.test(window.location.href)){
             console.warn('This is SHOP URL');
             console.log(window.location.href);
+        
+            headerAdaptive();
+            legacyFooterBlock()
+
+            helloParalaxBlock();
+
+            contentBlockShop();
+
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
 
         }else if(/MyLandRover/.test(window.location.href)){
             console.warn('This is ARTICLE PAGE URL');
             console.log(window.location.href);
+
+            headerAdaptive();
+            legacyFooterBlock();
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
             
         } else if(/page/.test(window.location.href)){
             console.warn('This is ARTICLES from HOME PAGE URL');
             console.log(window.location.href);
+
+            headerAdaptive();
+            legacyFooterBlock();
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
 
         }else if(/offroad/.test(window.location.href)){
             console.warn('This is DEFENDER Studio PAGE URL');
             console.log(window.location.href);
+
+            headerAdaptive();
+            legacyFooterBlock();
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
         }else if(/contacts/.test(window.location.href)){
             console.warn('This is CONTACTS PAGE URL');
             console.log(window.location.href);
+
+            headerAdaptive();
+            legacyFooterBlock()
         } else {
             console.warn('This is ANOTHER PAGE');
             console.log(window.location.href);
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
+
+            headerAdaptive();
+            legacyFooterBlock();
+
+            contentBlockHome();
+            helloParalaxBlock();
         }
     }
+
+
+    function mainApadtiveSwitcher(){
+        let intViewportWidth = window.innerWidth;
+        console.warn('Switcher view port:');
+        console.log(intViewportWidth);
+        if(intViewportWidth < 1140){
+            urlReader();
+            
+        } else {
+            // console.warn('desktop!');
+        }
+    }
+
+
 
 
     numbersSwitcherHeader();
