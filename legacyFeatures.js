@@ -650,21 +650,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
     function urlReader(){
         let currentUrl 
 
-        if(/shop/.test(window.location.href)){
+        if (window.location.href == 'https://lr.ru/shop/type/'){
             console.warn('This is SHOP URL');
             console.log(window.location.href);
         
             headerAdaptive();
-            legacyFooterBlock()
-
+            legacyFooterBlock();
+            
+            contentBlockHome();
             helloParalaxBlock();
-
-            contentBlockShop();
 
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
 
-        }else if(/MyLandRover/.test(window.location.href)){
+        }else if (window.location.href == 'https://lr.ru/shop/'){
             console.warn('This is ARTICLE PAGE URL');
             console.log(window.location.href);
 
@@ -673,7 +672,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
             
-        } else if(/page/.test(window.location.href)){
+        }else if (window.location.href == 'https://lr.ru/MyLandRover/'){
+            console.warn('This is ARTICLE PAGE URL');
+            console.log(window.location.href);
+
+            headerAdaptive();
+            legacyFooterBlock();
+            // console.log(window.location.hostname);
+            // console.log(window.location.pathname);
+            
+        }else if (window.location.href == 'https://lr.ru/page/'){
             console.warn('This is ARTICLES from HOME PAGE URL');
             console.log(window.location.href);
 
@@ -682,7 +690,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
 
-        }else if(/offroad/.test(window.location.href)){
+        }else if (window.location.href == 'https://lr.ru/offroad/'){
             console.warn('This is DEFENDER Studio PAGE URL');
             console.log(window.location.href);
 
@@ -690,14 +698,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
             legacyFooterBlock();
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
-        }else if(/contacts/.test(window.location.href)){
+        }else if (window.location.href == 'https://lr.ru/contacts/'){
             console.warn('This is CONTACTS PAGE URL');
             console.log(window.location.href);
 
             headerAdaptive();
             legacyFooterBlock()
-        } else {
-            console.warn('This is ANOTHER PAGE');
+        }else if (window.location.href == 'https://lr.ru'){
+            console.warn('This is HOME PAGE');
             console.log(window.location.href);
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
