@@ -698,6 +698,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         } 
     }   
 
+    //URL Reader
     function urlReader(){
         let currentUrl 
 
@@ -784,29 +785,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
-
-    function mainApadtiveSwitcher(){
+    //Main adaptive switcher
+    function mainApadtiveSwitcherActivate(){
         let intViewportWidth = window.innerWidth;
         console.warn('Switcher view port:');
         console.log(intViewportWidth);
         if(intViewportWidth < 1140){
-            urlReader();
 
+            urlReader();
             
         } else {
             // console.warn('desktop!');
         }
     }
 
-
-
-
     numbersSwitcherHeader();
-
-    mainApadtiveSwitcher();
-
-
-
-
+    mainApadtiveSwitcherActivate();
 });
 
