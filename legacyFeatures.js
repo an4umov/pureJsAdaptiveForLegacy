@@ -701,6 +701,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let contentParent = document.querySelector('#content');
         let headerPhantom = document.querySelector('.header-top__phantom');
 
+        let contentBlock = contentParent.querySelector('.content-block');
+
+        let breadcrumbsList = contentParent.querySelector('.b-breadcrumb__list');
+        let listOfBreadItems = document.querySelectorAll('.b-breadcrumb__item');
+        let lastBreadcrumb = listOfBreadItems[listOfBreadItems.length - 1];
+
         if(contentParent === null){
             // console.log('No sidebars on the page!');
         } else{
@@ -715,12 +721,66 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
 
+                breadcrumbsList.style.display = 'flex';
+                breadcrumbsList.style.position = 'relative';
+                breadcrumbsList.style.overflowX = 'scroll';
+                breadcrumbsList.style.overflowY = 'none';
+                breadcrumbsList.style.whiteSpace = 'nowrap';
+                breadcrumbsList.style.marginTop = '20px';
+
+                function lastItemScroll(){
+                    lastBreadcrumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                }
+                setTimeout(lastItemScroll, 1000);
+
+
 
             }else {
 
             }
         }
     }
+
+    contentBlockShopType();
+
+    function breadCrumbMobile(){
+        let contentParent = document.querySelector('#content');
+        let breadcrumbsList = contentParent.querySelector('.b-breadcrumb__list');
+        let listOfBreadItems = document.querySelectorAll('.b-breadcrumb__item');
+        let lastBreadcrumb = listOfBreadItems[listOfBreadItems.length - 1];
+
+        if(breadcrumbsList === null){
+            // console.log('No sidebars on the page!');
+        } else{
+            let intViewportWidthContent = contentParent.getBoundingClientRect();
+            // console.warn('Content view port:');
+            // console.log(intViewportWidthContent.width);
+
+            if(intViewportWidthContent.width < 760){
+                 // console.warn('мобила!');  
+                
+                //NewsCard adaptive mobile
+                breadcrumbsList.style.display = 'flex';
+                breadcrumbsList.style.position = 'relative';
+                breadcrumbsList.style.overflowX = 'scroll';
+                breadcrumbsList.style.overflowY = 'none';
+                breadcrumbsList.style.whiteSpace = 'nowrap';
+                breadcrumbsList.style.marginTop = '20px';
+
+                function lastItemScroll(){
+                    lastBreadcrumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                }
+                setTimeout(lastItemScroll, 1000);
+
+
+
+            }else {
+                // console.warn('планшет!');  
+            }
+        }
+    }
+
+    breadCrumbMobile();
 
     //URL Reader
     function urlReader(){
