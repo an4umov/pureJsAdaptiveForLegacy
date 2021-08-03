@@ -707,6 +707,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let listOfBreadItems = document.querySelectorAll('.b-breadcrumb__item');
         let lastBreadcrumb = listOfBreadItems[listOfBreadItems.length - 1];
 
+        let bCatalogFull = contentBlock.querySelector('.b-catalog-full');
+
         if(contentParent === null){
             // console.log('No sidebars on the page!');
         } else{
@@ -721,18 +723,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
 
-                breadcrumbsList.style.display = 'flex';
-                breadcrumbsList.style.position = 'relative';
-                breadcrumbsList.style.overflowX = 'scroll';
-                breadcrumbsList.style.overflowY = 'none';
-                breadcrumbsList.style.whiteSpace = 'nowrap';
-                breadcrumbsList.style.marginTop = '20px';
-
-                function lastItemScroll(){
-                    lastBreadcrumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-                }
-                setTimeout(lastItemScroll, 1000);
-
+                bCatalogFull.style.display = 'flex';
+                bCatalogFull.style.flexDirection = 'column';
 
 
             }else {
@@ -741,8 +733,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
-    contentBlockShopType();
-
+    //Adaptive for breadcrumbsBlock
     function breadCrumbMobile(){
         let contentParent = document.querySelector('#content');
         let breadcrumbsList = contentParent.querySelector('.b-breadcrumb__list');
@@ -780,7 +771,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
-    breadCrumbMobile();
 
     //URL Reader
     function urlReader(){
@@ -796,6 +786,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
             legacyFooterBlock();
 
             sideBarAdativeForHome();
+
+            contentBlockShopType();
+            breadCrumbMobile();
 
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
