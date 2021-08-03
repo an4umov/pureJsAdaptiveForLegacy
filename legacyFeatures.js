@@ -656,10 +656,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             // console.warn('Content view port:');
             // console.log(intViewportWidthContent.width);
 
-            // if(intViewportWidth < 1140)
-
             if(intViewportWidthContent.width < 760){
-    
+                // console.warn('мобила!');  
                 
                 //NewsCard adaptive mobile
                 contentBlock.classList.remove('span12');
@@ -697,6 +695,32 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
         } 
     }   
+
+    //Adaptive for /shop/type
+    function contentBlockShopType(){
+        let contentParent = document.querySelector('#content');
+        let headerPhantom = document.querySelector('.header-top__phantom');
+
+        if(contentParent === null){
+            // console.log('No sidebars on the page!');
+        } else{
+            let intViewportWidthContent = contentParent.getBoundingClientRect();
+            // console.warn('Content view port:');
+            // console.log(intViewportWidthContent.width);
+
+            if(intViewportWidthContent.width < 760){
+                 // console.warn('мобила!');  
+                
+                //NewsCard adaptive mobile
+                contentBlock.classList.remove('span12');
+                contentBlock.classList.add('span16');
+
+
+            }else {
+
+            }
+        }
+    }
 
     //URL Reader
     function urlReader(){
@@ -802,4 +826,3 @@ document.addEventListener("DOMContentLoaded", (event) => {
     numbersSwitcherHeader();
     mainApadtiveSwitcherActivate();
 });
-
