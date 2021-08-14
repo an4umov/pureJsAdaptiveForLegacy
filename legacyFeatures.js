@@ -695,8 +695,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
         } 
     }   
+    contentBlockShop()
 
-    //Adaptive for /shop/type
+    //Adaptive for /shop/type only phablet
     function contentBlockShopType(){
         let contentParent = document.querySelector('#content');
         let headerPhantom = document.querySelector('.header-top__phantom');
@@ -747,7 +748,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             // console.warn('Content view port:');
             // console.log(intViewportWidthContent.width);
 
-            if(intViewportWidthContent.width < 760){
+            if(intViewportWidthContent.width < 1140){
                  // console.warn('мобила!');  
                 
                 //NewsCard adaptive mobile
@@ -770,6 +771,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
         }
     }
+
+    breadCrumbMobile()
 
 
     //URL Reader
