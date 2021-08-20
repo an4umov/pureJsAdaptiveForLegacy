@@ -695,7 +695,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
         } 
     }   
-    contentBlockShop()
+
 
     //Adaptive for /shop/type only phablet
     function contentBlockShopType(){
@@ -771,15 +771,136 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
         }
     }
+    
+    //Adaptive for /shop/code
+    function contentBlockShopCode(){
+        let priceTable = document.querySelectorAll('.b-price');
+       
 
-    breadCrumbMobile()
+    
+
+        for(let i = 0; i < priceTable.length; i++){
+
+            let tableTitle = priceTable[i].querySelector('.b-price__title');
+            let tableTitleText = tableTitle.innerHTML;
+
+            let tableParent = priceTable[i].parentElement;
+            console.log(tableParent);
+            // console.log(tableTitleText);   
+
+            if(tableTitleText === 'В наличии на складе'){
+               
+                console.log(tableTitle);
+                
+                let offerRowsParent = priceTable[i].querySelector(".b-price__items");
+                // console.log(offerRowsParent);
+                let offerRowsInTable = offerRowsParent.querySelectorAll('tr');
+
+                for(let i = 0; i < offerRowsInTable.length; i++){
+                    console.log(offerRowsInTable[i]);
+                    let offersListOfItems = offerRowsInTable[i].querySelectorAll('td');
+                    // console.log(offersListOfItems);
+                    // console.log(offersListOfItems[0]);
+                    // console.log(offersListOfItems[1]);
+                    // console.log(offersListOfItems[2]);
+                    // console.log(offersListOfItems[3]);
+                    // console.log(offersListOfItems[4]);
+                    // console.log(offersListOfItems[5]);
+
+                    let offerItemCode = offersListOfItems[0];
+
+                    console.warn(offerItemCode);
+                    console.log(offerItemCode);
+
+                    let offerListMeta = document.createElement('div');
+                    offerListMeta.innerHTML = ` <div class="offer-card-mobile__list">
+    
+                                                    <div class="offer-card-mobile__item">
+                                    
+                                                        <div class="offer-card-mobile__properties mobile-properties">
+                                    
+                                                            <div class="mobile-properties__manufactor">
+                                    
+                                                            </div>
+                                    
+                                                            <div class="mobile-properties__offer-code">
+                                    
+                                                            </div>
+                                    
+                                                            <!-- <div class="mobile-properties__replacement">
+                                    
+                                                            </div>  -->
+
+                                                            <div class="mobile-properties__quality">
+                                    
+                                                            </div> 
+                                    
+                                                        </div>
+                                    
+                                                        <div class="offer-card-mobile__description mobile-description">
+                                    
+                                                            <div class="mobile-description__delivery">
+                                    
+                                                            </div>
+                                    
+                                                            <div class="mobile-description__quantity">
+                                    
+                                                            </div>
+                                    
+                                                        </div>
+                                    
+                                                        <div class="offer-card-mobile__buy mobile-buy">
+                                    
+                                                            <div class="mobile-buy__price">
+                                    
+                                                            </div>
+                                    
+                                                            <div class="mobile-buy__btn">
+                                    
+                                                            </div>
+                                    
+                                                        </div>
+                                    
+                                                    </div>
+                                    
+                                                </div>`;
+
+                   
+
+                    tableParent.appendChild(offerListMeta);
+
+                    
+                }
+                
+                
+              
+            } else if(tableTitleText === 'Поставка на заказ'){
+                
+                // console.log(tableTitle);
+                // console.warn('Поставка на заказ Title');
+            }
+        }
+       
+    }
+
+    contentBlockShopCode();
+
 
 
     //URL Reader
     function urlReader(){
         let currentUrl 
 
-        if (window.location.toString().includes("https://lr.ru/shop/type")){
+        if(window.location.toString().includes("https://lr.ru/shop/code")){
+            console.warn('This is shop CODE PAGE URL');
+            console.log(window.location.href);
+
+            headerAdaptive();
+            legacyFooterBlock();
+
+            sideBarAdativeForHome();
+
+        }else if (window.location.toString().includes("https://lr.ru/shop/type")){
             console.warn('This is shop TYPE PAGE URL');
             console.log(window.location.href);
 
