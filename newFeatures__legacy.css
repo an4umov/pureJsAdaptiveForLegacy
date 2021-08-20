@@ -57,11 +57,13 @@ html {
 }
 
 .offer-card-mobile__item{
+    box-sizing: border-box;
     position: relative;
     display: flex;
     min-height: 120px;
     max-height: 120px;
     border: 1px solid blue;
+    padding: 10px 5px;
 }
 /* mobile-properties */
 
@@ -69,9 +71,9 @@ html {
     width: 33%;
     display: flex;
     flex-direction: column;
-    border: 2px solid #10746f;
-    min-height: 120px;
-    max-height: 120px;
+    justify-content: space-between;
+    min-height: 100px;
+    max-height: 100px;
     overflow: hidden;
 }
 
@@ -80,16 +82,43 @@ html {
     border: 1px solid #000;
 }
 
+.mobile-properties__offer-code{
+    min-height: 19px;
+    border: 1px solid #0a0b5c;
+}
+
+.mobile-properties__replacement{
+    min-height: 19px;
+    border: 1px solid #000;
+}
+
+.mobile-properties__quality{
+    min-height: 19px;
+    border: 1px solid #054d1d;
+}
+
 /* mobile-description */
 .offer-card-mobile__description{
     width: 33%;
     display: flex;
     flex-direction: column;
-    border: 2px solid #8d0f0f;
-    min-height: 120px;
-    max-height: 120px;
+    align-self: flex-end;
+    justify-content: space-between;
+    min-height: 61px;
+    max-height: 61px;
     overflow: hidden;
+    margin-bottom: -2px;
 
+}
+
+.mobile-description__delivery{
+    min-height: 19px;
+    border: 1px solid #28bd59;
+}
+
+.mobile-description__quantity{
+    min-height: 19px;
+    border: 1px solid #b91010;
 }
 
 
@@ -99,8 +128,18 @@ html {
     width: 33%;
     display: flex;
     flex-direction: column;
-    border: 2px solid #6d0cbd;
-    min-height: 120px;
-    max-height: 120px;
+    justify-content: space-between;
+    min-height: 100px;
+    max-height: 100px;
     overflow: hidden;
+}
+
+.mobile-buy__price{
+    min-height: 19px;
+    border: 1px solid #0b60cf;
+}
+
+.mobile-buy__btn{
+    min-height: 19px;
+    border: 1px solid #3e14af;
 }
