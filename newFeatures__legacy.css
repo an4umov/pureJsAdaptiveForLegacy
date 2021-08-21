@@ -64,6 +64,7 @@ html {
     max-height: 120px;
     border: 1px solid blue;
     padding: 10px 5px;
+    margin-bottom: 5px;
 }
 /* mobile-properties */
 
@@ -112,7 +113,7 @@ html {
 }
 
 .mobile-description__delivery{
-    min-height: 19px;
+    min-height: 21px;
     border: 1px solid #28bd59;
 }
 
