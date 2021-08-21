@@ -957,6 +957,82 @@ document.addEventListener("DOMContentLoaded", (event) => {
                    
                     offerTabPriceAvailable.appendChild(offerListMeta);                    
                 }
+            } else{
+
+                let offerRowsParent = priceTable[i].querySelector(".b-price__items");
+                let offerRowsInTable = offerRowsParent.querySelectorAll('tr');
+
+                //create title for virtual adaptive block
+                let offerListTitleMeta = document.createElement('div');
+                offerListTitleMeta.classList.add('offer-card-mobile__list-title');
+                offerListTitleMeta.innerHTML = `В наличии на складе (замены и аналоги)`;
+                offerTabPriceAvailable.appendChild(offerListTitleMeta);
+
+                for(let i = 0; i < offerRowsInTable.length; i++){
+                    // console.log(offerRowsInTable[i]);
+                    let offersListOfItems = offerRowsInTable[i].querySelectorAll('td');
+
+                    let lastOffersRow = offerRowsInTable[offerRowsInTable.length - 1];
+                    // console.log(offersListOfItems);
+                    // console.log(offersListOfItems[0]);
+                    // console.log(offersListOfItems[1]);
+                    let offerItemManufactor = offersListOfItems[0].innerHTML;
+                    let offerItemQuantity = offersListOfItems[1].innerHTML;
+                    let offerItemPrice = offersListOfItems[2].innerHTML;
+                    let offerItemQuality = offersListOfItems[3].innerHTML;
+                    let offerItemReplacement = offersListOfItems[4].innerHTML;
+                    let offerItemCartBtn = offersListOfItems[5].innerHTML;
+
+
+                    //create virtual adaptive block
+                    let offerListMeta = document.createElement('div'); 
+                    offerListMeta.classList.add('offer-card-mobile__list');
+                    offerListMeta.innerHTML = `<div class="offer-card-mobile__item">
+                                    
+                                                        <div class="offer-card-mobile__properties mobile-properties">
+                                    
+                                                            <div class="mobile-properties__manufactor">
+                                                                ${offerItemManufactor}
+                                                            </div>
+                                                                        
+                                                            <div class="mobile-properties__replacement">
+                                                                ${offerItemReplacement}
+                                                            </div>
+
+                                                            <div class="mobile-properties__quality">
+                                                                ${offerItemQuality}
+                                                            </div> 
+                                    
+                                                        </div>
+                                    
+                                                        <div class="offer-card-mobile__description mobile-description">
+                                    
+                                                            <div class="mobile-description__delivery">
+                                    
+                                                            </div>
+                                    
+                                                            <div class="mobile-description__quantity">
+                                                                Наличие: ${offerItemQuantity} шт.
+                                                            </div>
+                                    
+                                                        </div>
+                                    
+                                                        <div class="offer-card-mobile__buy mobile-buy">
+                                    
+                                                            <div class="mobile-buy__price">
+                                                                ${offerItemPrice}
+                                                            </div>
+                                    
+                                                            <div class="mobile-buy__btn">
+                                                                ${offerItemCartBtn}
+                                                            </div>
+                                    
+                                                        </div>
+                                    
+                                                    </div>`;
+                   
+                    offerTabPriceAvailable.appendChild(offerListMeta);                    
+                }
             }
         }
        
