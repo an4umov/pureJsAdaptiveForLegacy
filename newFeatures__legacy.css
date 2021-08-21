@@ -147,10 +147,11 @@ html {
 .offer-card-mobile__list-title{
     display: flex;
     color: #555;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 700;
     border-bottom: 2px solid #ffa200;
     text-align: left;
     padding: 10px 10px;
     padding-bottom: 2px;
+    margin-bottom: 10px;
 }

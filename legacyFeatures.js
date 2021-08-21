@@ -775,29 +775,35 @@ document.addEventListener("DOMContentLoaded", (event) => {
     //Adaptive for /shop/code
     function contentBlockShopCode(){
         let priceTable = document.querySelectorAll('.b-price');
-       
 
-    
 
         for(let i = 0; i < priceTable.length; i++){
+
+            let offerTabPriceAvailable = priceTable[i].closest('.tab-pane');
 
             let tableTitle = priceTable[i].querySelector('.b-price__title');
             let tableTitleText = tableTitle.innerHTML;          
 
             let tableParent = priceTable[i].parentElement;
-            console.log(tableParent);
-            // console.log(tableTitleText);   
+            
+            // console.log(tabsContainerOfOffer);   
 
             if(tableTitleText === 'В наличии на складе'){
                
-                console.log(tableTitle);
+                // console.log(tableTitle);
                 
                 let offerRowsParent = priceTable[i].querySelector(".b-price__items");
                 // console.log(offerRowsParent);
                 let offerRowsInTable = offerRowsParent.querySelectorAll('tr');
 
+                //create title for virtual adaptive block
+                let offerListTitleMeta = document.createElement('div');
+                offerListTitleMeta.classList.add('offer-card-mobile__list-title');
+                offerListTitleMeta.innerHTML = `В наличии на складе`;
+                offerTabPriceAvailable.appendChild(offerListTitleMeta);
+
                 for(let i = 0; i < offerRowsInTable.length; i++){
-                    console.log(offerRowsInTable[i]);
+                    // console.log(offerRowsInTable[i]);
                     let offersListOfItems = offerRowsInTable[i].querySelectorAll('td');
 
                     let lastOffersRow = offerRowsInTable[offerRowsInTable.length - 1];
@@ -813,7 +819,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
                     //create virtual adaptive block
-                    let offerListMeta = document.createElement('div');
+                    let offerListMeta = document.createElement('div'); 
                     offerListMeta.classList.add('offer-card-mobile__list');
                     offerListMeta.innerHTML = `<div class="offer-card-mobile__item">
                                     
@@ -863,8 +869,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                     
                                                     </div>`;
 
+
                    
-                    priceTable[i].after(offerListMeta);
+                    
+                    // priceTable[i].after(offerListMeta);
+                    // priceTable[i].after(offerListTitleMeta);
+                   
+                    offerTabPriceAvailable.appendChild(offerListMeta);
                     
                     // tableParent.appendChild(offerListMeta);
 
