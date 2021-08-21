@@ -782,7 +782,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         for(let i = 0; i < priceTable.length; i++){
 
             let tableTitle = priceTable[i].querySelector('.b-price__title');
-            let tableTitleText = tableTitle.innerHTML;
+            let tableTitleText = tableTitle.innerHTML;          
 
             let tableParent = priceTable[i].parentElement;
             console.log(tableParent);
@@ -799,32 +799,32 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 for(let i = 0; i < offerRowsInTable.length; i++){
                     console.log(offerRowsInTable[i]);
                     let offersListOfItems = offerRowsInTable[i].querySelectorAll('td');
+
+                    let lastOffersRow = offerRowsInTable[offerRowsInTable.length - 1];
                     // console.log(offersListOfItems);
                     // console.log(offersListOfItems[0]);
                     // console.log(offersListOfItems[1]);
-                    // console.log(offersListOfItems[2]);
-                    // console.log(offersListOfItems[3]);
-                    // console.log(offersListOfItems[4]);
-                    // console.log(offersListOfItems[5]);
+                    let offerItemCode = offersListOfItems[0].innerHTML;
+                    let offerItemManufactor = offersListOfItems[1].innerHTML;
+                    let offerItemQuantity = offersListOfItems[2].innerHTML;
+                    let offerItemPrice = offersListOfItems[3].innerHTML;
+                    let offerItemQuality = offersListOfItems[4].innerHTML;
+                    let offerItemCartBtn = offersListOfItems[5].innerHTML;
 
-                    let offerItemCode = offersListOfItems[0];
 
-                    console.warn(offerItemCode);
-                    console.log(offerItemCode);
-
+                    //create virtual adaptive block
                     let offerListMeta = document.createElement('div');
-                    offerListMeta.innerHTML = ` <div class="offer-card-mobile__list">
-    
-                                                    <div class="offer-card-mobile__item">
+                    offerListMeta.classList.add('offer-card-mobile__list');
+                    offerListMeta.innerHTML = `<div class="offer-card-mobile__item">
                                     
                                                         <div class="offer-card-mobile__properties mobile-properties">
                                     
                                                             <div class="mobile-properties__manufactor">
-                                    
+                                                                ${offerItemManufactor}
                                                             </div>
                                     
                                                             <div class="mobile-properties__offer-code">
-                                    
+                                                                ${offerItemCode}
                                                             </div>
                                     
                                                             <!-- <div class="mobile-properties__replacement">
@@ -832,7 +832,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                                             </div>  -->
 
                                                             <div class="mobile-properties__quality">
-                                    
+                                                                ${offerItemQuality}
                                                             </div> 
                                     
                                                         </div>
@@ -844,7 +844,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                                             </div>
                                     
                                                             <div class="mobile-description__quantity">
-                                    
+                                                                ${offerItemQuantity}
                                                             </div>
                                     
                                                         </div>
@@ -852,22 +852,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                                         <div class="offer-card-mobile__buy mobile-buy">
                                     
                                                             <div class="mobile-buy__price">
-                                    
+                                                                ${offerItemPrice}
                                                             </div>
                                     
                                                             <div class="mobile-buy__btn">
-                                    
+                                                                ${offerItemCartBtn}
                                                             </div>
                                     
                                                         </div>
                                     
-                                                    </div>
-                                    
-                                                </div>`;
+                                                    </div>`;
 
                    
-
-                    tableParent.appendChild(offerListMeta);
+                    priceTable[i].after(offerListMeta);
+                    
+                    // tableParent.appendChild(offerListMeta);
 
                     
                 }
