@@ -155,15 +155,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
                 helloBlock.style.height = '15.5em';
                 
+                
                 helloBlockPeoples.classList.add('desk-background--mobile');
+
+                helloBlock.style.display = 'none';
             }else {
                 // console.warn('планшет!');
 
                 helloBlockPeoples.style.left = '-260px';
+
+                helloBlock.style.display = 'none';
             }
         }
     }
 
+   
      //Adaptive for contentBlockOnHomePage
     function contentBlockHome(){
         let contentParent = document.querySelector('#content');
@@ -404,7 +410,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             sideBar.style.zIndex = '1';
             // if(intViewportWidth < 1140)
 
-            if(intViewportWidthContent.width < 500){
+            if(intViewportWidthContent.width < 650){
 
                 //Side bar mobile mech
                 sideBarMenu.style.display = 'flex';
@@ -1051,6 +1057,39 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
+    function contentBlochShopCodeMobile(){
+        let contentParent = document.querySelector('#content');
+        let contentBlock = contentParent.querySelector('.content-block');
+
+        let availableFilterChecbox = contentParent.querySelector('.squaredLabel');
+
+        let offerCardItemFull = contentBlock.querySelectorAll('.b-item-full');
+        
+
+        let intViewportWidthContent = contentParent.getBoundingClientRect();
+            // console.warn('Content view port:');
+            // console.log(intViewportWidthContent.width);
+
+            if(intViewportWidthContent.width < 650){
+                contentBlock.classList.remove('span12');
+                contentBlock.classList.add('span16');
+
+                availableFilterChecbox.style.width = '230px';
+                availableFilterChecbox.style.fontSize = '11px';
+
+                for(let i = 0; i < offerCardItemFull.length; i++){
+                    offerCardItemFull[i].style.display = 'flex';
+                    offerCardItemFull[i].style.flexDirection = 'column';
+
+                    let offerPreviewBlock = offerCardItemFull[i].querySelector('.b-item-full__preview');
+                    offerPreviewBlock.style.alignSelf = 'center';
+                }
+           
+            }  
+    }
+
+  
+
 
     //URL Reader
     function urlReader(){
@@ -1065,8 +1104,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             sideBarAdativeForHome();
             breadCrumbMobile();
+            helloParalaxBlock()
+            
 
             contentBlockShopCode();
+            contentBlochShopCodeMobile();
 
         }else if (window.location.toString().includes("https://lr.ru/shop/type")){
             console.warn('This is shop TYPE PAGE URL');
@@ -1078,6 +1120,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             legacyFooterBlock();
 
             sideBarAdativeForHome();
+            helloParalaxBlock();
 
             contentBlockShopType();
             breadCrumbMobile();
@@ -1094,6 +1137,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
+            helloParalaxBlock();
+
             sideBarAdativeForShop();
             contentBlockShop(); 
 
@@ -1108,8 +1153,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
             sideBarAdativeForHome();
-            contentBlockHome();
             helloParalaxBlock();
+
+            contentBlockHome();
+            
             
         }else if(window.location.toString().includes("https://lr.ru/MyLandRover")){
             console.warn('This is ARTICLE PAGE URL');
@@ -1117,6 +1164,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             headerAdaptive();
             legacyFooterBlock();
+
+            helloParalaxBlock();
 
             sideBarAdativeForHome();
             // console.log(window.location.hostname);
@@ -1129,6 +1178,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
+            helloParalaxBlock();
+
             sideBarAdativeForHome();
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
@@ -1140,6 +1191,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
+            helloParalaxBlock();
+
             sideBarAdativeForHome();
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
@@ -1149,6 +1202,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             headerAdaptive();
             legacyFooterBlock();
+
+            helloParalaxBlock();
 
             sideBarAdativeForHome();
         }
