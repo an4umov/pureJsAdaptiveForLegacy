@@ -62,9 +62,10 @@ html {
     display: flex;
     min-height: 120px;
     max-height: 120px;
-    border: 1px solid blue;
+    border: 1px solid #868686;
     padding: 10px 5px;
     margin-bottom: 5px;
+    border-radius: 3px;
 }
 /* mobile-properties */
 
@@ -80,22 +81,22 @@ html {
 
 .mobile-properties__manufactor{
     min-height: 19px;
-    border: 1px solid #000;
+    font-size: 14px;
 }
 
 .mobile-properties__offer-code{
     min-height: 19px;
-    border: 1px solid #0a0b5c;
+    font-size: 14px;
 }
 
 .mobile-properties__replacement{
     min-height: 19px;
-    border: 1px solid #000;
+    font-size: 12px;
 }
 
 .mobile-properties__quality{
     min-height: 19px;
-    border: 1px solid #054d1d;
+    font-size: 13px;
 }
 
 /* mobile-description */
@@ -114,12 +115,14 @@ html {
 
 .mobile-description__delivery{
     min-height: 21px;
-    border: 1px solid #28bd59;
+    font-size: 14px;
+    padding-left: 10px;
 }
 
 .mobile-description__quantity{
     min-height: 19px;
-    border: 1px solid #b91010;
+    font-size: 14px;
+    padding-left: 10px;
 }
 
 
@@ -137,12 +140,13 @@ html {
 
 .mobile-buy__price{
     min-height: 19px;
-    border: 1px solid #0b60cf;
+    font-size: 14px;
+    text-align: right;
 }
 
 .mobile-buy__btn{
     min-height: 19px;
-    border: 1px solid #3e14af;
+    
 }
 
 .offer-card-mobile__list-title{
