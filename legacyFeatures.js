@@ -826,6 +826,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
                             let offerItemPrice = offersListOfItems[3].innerHTML;
                             let offerItemQuality = offersListOfItems[4].innerHTML;
                             let offerItemCartBtn = offersListOfItems[5].innerHTML;
+
+                            
         
         
                             //create virtual adaptive block
@@ -879,6 +881,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                             
                                                             </div>`;
                            
+                            //update styles after render virual html
+                            let priceSpan = offerListMeta.querySelector('.b-price__icon'); 
+                            priceSpan.style.width = 'auto';
+
+                            let buyBtnBlock = offerListMeta.querySelector('.mobile-buy__btn');
+                            let buyBtn = buyBtnBlock.querySelector('button');
+                            buyBtn.style.width = '115px';
+                            // buyBtn.style.backgroundPosition = '90% 0%';
+                            // buyBtn.innerHTML = ' ';
+
                             offerTabPriceAvailable.appendChild(offerListMeta);                    
                         }
         
@@ -915,6 +927,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
                             let offerItemPrice = offersListOfItems[3].innerHTML;
                             let offerItemQuality = offersListOfItems[4].innerHTML;
                             let offerItemCartBtn = offersListOfItems[5].innerHTML;
+
+                            
         
         
                             //create virtual adaptive block
@@ -967,7 +981,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                                                 </div>
                                             
                                                             </div>`;
-                           
+                            
+
+                            let priceSpan = offerListMeta.querySelector('.b-price__icon'); 
+                            priceSpan.style.width = 'auto';
+
+                            let buyBtnBlock = offerListMeta.querySelector('.mobile-buy__btn');
+                            let buyBtn = buyBtnBlock.querySelector('button');
+                            buyBtn.style.width = '115px';
+
                             offerTabPriceAvailable.appendChild(offerListMeta);                    
                         }
         
@@ -998,6 +1020,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
                             let offerItemQuality = offersListOfItems[3].innerHTML;
                             let offerItemReplacement = offersListOfItems[4].innerHTML;
                             let offerItemCartBtn = offersListOfItems[5].innerHTML;
+
+                        
         
         
                             //create virtual adaptive block
@@ -1046,7 +1070,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                                                 </div>
                                             
                                                             </div>`;
-                           
+                            
+                            let priceSpan = offerListMeta.querySelector('.b-price__icon'); 
+                            priceSpan.style.width = 'auto';
+
+                            let buyBtnBlock = offerListMeta.querySelector('.mobile-buy__btn');
+                            let buyBtn = buyBtnBlock.querySelector('button');
+                            buyBtn.style.width = '115px';
+                            
                             offerTabPriceAvailable.appendChild(offerListMeta);                    
                         }
                         priceTable[i].remove();
@@ -1095,7 +1126,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
     function urlReader(){
         let currentUrl 
 
-        if(window.location.toString().includes("https://lr.ru/shop/code")){
+        if(window.location.toString().includes("https://lr.ru/shop/product")){
+
+            headerAdaptive();
+            legacyFooterBlock();
+
+            sideBarAdativeForHome();
+            breadCrumbMobile();
+            helloParalaxBlock();
+
+        } else if(window.location.toString().includes("https://lr.ru/shop/code")){
             console.warn('This is shop CODE PAGE URL');
             console.log(window.location.href);
 
@@ -1104,11 +1144,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             sideBarAdativeForHome();
             breadCrumbMobile();
-            helloParalaxBlock()
-            
+            helloParalaxBlock();
 
             contentBlockShopCode();
             contentBlochShopCodeMobile();
+
 
         }else if (window.location.toString().includes("https://lr.ru/shop/type")){
             console.warn('This is shop TYPE PAGE URL');
