@@ -169,7 +169,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
-   
      //Adaptive for contentBlockOnHomePage
     function contentBlockHome(){
         let contentParent = document.querySelector('#content');
@@ -539,6 +538,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 sideBarMenu.style.borderRadius = '5px';
                 sideBar.style.position = 'relative';
                 sideBar.style.zIndex = '1';
+                sideBar.style.marginBottom = '25px';
 
                 console.warn(textFromTitle);
                 let currentItem = sideBar.querySelector('.current');
@@ -702,7 +702,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         } 
     }   
 
-
     //Adaptive for /shop/type only phablet
     function contentBlockShopType(){
         let contentParent = document.querySelector('#content');
@@ -773,7 +772,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
         }
     }
-
     
     //Adaptive for /shop/code
     function contentBlockShopCodeOffers(){
@@ -804,6 +802,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                         let offerRowsParent = priceTable[i].querySelector(".b-price__items");
                         let offerRowsInTable = offerRowsParent.querySelectorAll('tr');
         
+
                         //create title for virtual adaptive block
                         let offerListTitleMeta = document.createElement('div');
                         offerListTitleMeta.classList.add('offer-card-mobile__list-title');
@@ -1449,12 +1448,37 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }  
     }
 
+    //Adaptive for /cart
+    function contentBlockCart(){
+        let contentParent = document.querySelector('#content');
+        let sideBar = contentParent.querySelector('.sidebar');
+        let contentBlock = contentParent.querySelector('.content-block');
+        let quantityBlock = contentParent.querySelectorAll('.cart__table-quantity');
+        let orderForm = contentParent.querySelector('#order-form');
+        let orderFormParent = orderForm.parentElement;
 
+        console.warn(orderFormParent);
 
- 
+        let intViewportWidthContent = contentParent.getBoundingClientRect();
+            // console.warn('Content view port:');
+            // console.log(intViewportWidthContent.width);
 
-  
+            if(intViewportWidthContent.width < 1140){
+                sideBar.remove();
+                contentBlock.classList.remove('span12');
+                contentBlock.classList.add('span16');
 
+                for(let i = 0; i < quantityBlock.length; i++){
+                    quantityBlock[i].style.minWidth = '100px';
+                }
+
+                orderFormParent.classList.remove('span7');
+                orderFormParent.classList.add('span16');
+
+            }
+    }
+
+   
 
     //URL Reader
     function urlReader(){
@@ -1522,17 +1546,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
 
-        }else if(window.location.toString().includes("https://lr.ru/")){
-            console.warn('This is home PAGE URL');
+        }else if(window.location.toString().includes("https://lr.ru/cart")){
+            console.warn('This is CART PAGE URL');
             console.log(window.location.href);
+
             headerAdaptive();
             legacyFooterBlock();
 
-
-            sideBarAdativeForHome();
             helloParalaxBlock();
 
-            contentBlockHome();
+            contentBlockCart();
+        
             
             
         }else if(window.location.toString().includes("https://lr.ru/MyLandRover")){
@@ -1545,6 +1569,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
             helloParalaxBlock();
 
             sideBarAdativeForHome();
+            // console.log(window.location.hostname);
+            // console.log(window.location.pathname);
+            
+        }else if(window.location.toString().includes("https://lr.ru")){
+            console.warn('This is home PAGE URL');
+            console.log(window.location.href);
+            headerAdaptive();
+            legacyFooterBlock();
+
+
+            sideBarAdativeForHome();
+            helloParalaxBlock();
+
+            contentBlockHome();
+
+            
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
             
