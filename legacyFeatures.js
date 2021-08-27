@@ -312,7 +312,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     newSpan16List[2].style.textAlign = 'center';
 
                     // console.warn(footerSpan3Widget);
-                    footerSpan3Widget.style.marginBottom = '0';
+                   
                     
                     let socialsParent = footer.querySelector('.in-social');
                     socialsParent.style.display = 'flex';
@@ -1455,6 +1455,27 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }  
     }
 
+    //Adaptive for /search/type/catalog/??????
+    function contentBlockSearchPage(){
+        let contentBlock = document.querySelector('.content-block');
+        let categoryTitle = contentBlock.querySelector('.category-title');
+
+        if(categoryTitle == null){
+            console.warn('No category title on the page!');
+            //Search page with the Articles
+
+            contentBlockShopCodeOffers();
+            contentBlochShopCodeMobile();
+
+
+        } else{
+            console.warn('Category title on the page!');
+            //Search page WITHOUT articles
+        }
+    }
+
+    
+
     //Adaptive for /cart
     function contentBlockCart(){
         let contentParent = document.querySelector('#content');
@@ -1572,6 +1593,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             legacyFooterBlock();
 
             helloParalaxBlock();
+
+            contentBlockSearchPage();
 
             sideBarAdativeForHome();
             // console.log(window.location.hostname);
