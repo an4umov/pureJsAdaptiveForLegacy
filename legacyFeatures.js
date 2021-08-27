@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             footerContainer.style.padding = '0 0';
             let footerSpan5 = footer.querySelector('.span5');
             let footerSpan3 = footer.querySelector('.span3');
-            let footerSpan3Widget = footer.querySelector('.widget');
+            let footerSpan3Widgets = footer.querySelectorAll('.widget');
             
             let footerSpan4 = footer.querySelectorAll('.span4');
             
@@ -269,9 +269,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
             
 
             let intViewportWidthfooter = footer.getBoundingClientRect();
-            // console.warn('Footer view port:');
+            
             // console.log(intViewportWidthfooter.width);
             // if(intViewportWidth < 1140)
+
+            //delete subscribe block
+            for(let i = 0; i < footerSpan3Widgets.length; i++){
+                footerSpan3Widgets[1].style.display = 'none';
+            }
 
             if(intViewportWidthfooter.width < 610){
                 // console.warn('мобила!');
@@ -306,7 +311,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
                     newSpan16List[2].style.textAlign = 'center';
 
-                    console.warn(footerSpan3Widget);
+                    // console.warn(footerSpan3Widget);
                     footerSpan3Widget.style.marginBottom = '0';
                     
                     let socialsParent = footer.querySelector('.in-social');
@@ -1085,6 +1090,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
+
     function contentBlochShopCodeMobile(){
         let contentParent = document.querySelector('#content');
         let contentBlock = contentParent.querySelector('.content-block');
@@ -1105,6 +1111,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
                 availableFilterChecbox.style.width = '230px';
                 availableFilterChecbox.style.fontSize = '11px';
+
 
                 for(let i = 0; i < offerCardItemFull.length; i++){
                     offerCardItemFull[i].style.display = 'flex';
@@ -1478,8 +1485,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
     }
 
-   
-
     //URL Reader
     function urlReader(){
         let currentUrl 
@@ -1559,6 +1564,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
         
             
             
+        }else if(window.location.toString().includes("https://lr.ru/search/type/catalog")){
+            console.warn('This is Search PAGE URL');
+            console.log(window.location.href);
+
+            headerAdaptive();
+            legacyFooterBlock();
+
+            helloParalaxBlock();
+
+            sideBarAdativeForHome();
+            // console.log(window.location.hostname);
+            // console.log(window.location.pathname);
+            
         }else if(window.location.toString().includes("https://lr.ru/MyLandRover")){
             console.warn('This is ARTICLE PAGE URL');
             console.log(window.location.href);
@@ -1572,17 +1590,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
             
-        }else if(window.location.toString().includes("https://lr.ru")){
-            console.warn('This is home PAGE URL');
+        }else if(window.location.toString().includes("https://lr.ru/contacts")){
+            console.warn('This is CONTACTS PAGE URL');
             console.log(window.location.href);
+
             headerAdaptive();
             legacyFooterBlock();
 
-
-            sideBarAdativeForHome();
             helloParalaxBlock();
 
-            contentBlockHome();
+            sideBarAdativeForHome();
 
             
             // console.log(window.location.hostname);
@@ -1613,16 +1630,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
             sideBarAdativeForHome();
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
-        }else if(window.location.toString().includes("https://lr.ru/contacts")){
-            console.warn('This is CONTACTS PAGE URL');
-            console.log(window.location.href);
+        }else if(window.location.toString().includes("https://lr.ru")){
 
+
+            console.warn('This is home PAGE URL');
+            console.log(window.location.href);
             headerAdaptive();
             legacyFooterBlock();
 
-            helloParalaxBlock();
 
             sideBarAdativeForHome();
+            helloParalaxBlock();
+
+            contentBlockHome();
         }
     }
 
