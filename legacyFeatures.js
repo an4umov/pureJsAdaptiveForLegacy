@@ -1685,4 +1685,5 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     numbersSwitcherHeader();
     mainApadtiveSwitcherActivate();
+
 });
