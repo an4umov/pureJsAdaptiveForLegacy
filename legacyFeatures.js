@@ -1511,6 +1511,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let currentUrl 
 
         if(window.location.toString().includes("https://lr.ru/shop/product")){
+            console.warn('This is shop PRODUCT PAGE URL');
+            console.log(window.location.href);
 
             headerAdaptive();
             legacyFooterBlock();
