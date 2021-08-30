@@ -400,7 +400,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
 
-        sideBar.style.zIndex = '1';
+        sideBar.style.zIndex = '10';
 
         // console.log(contentBlock);
         // console.log(categoryTitle);
@@ -411,7 +411,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             let intViewportWidthContent = contentParent.getBoundingClientRect();
             // console.warn('Content view port:');
             // console.log(intViewportWidthContent.width);
-            sideBar.style.zIndex = '1';
+            sideBar.style.zIndex = '10';
             // if(intViewportWidth < 1140)
 
             if(intViewportWidthContent.width < 650){
@@ -423,7 +423,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 sideBarMenu.style.border = '2px solid #0076a3';
                 sideBarMenu.style.borderRadius = '5px';
                 sideBar.style.position = 'relative';
-                sideBar.style.zIndex = '1';
+                sideBar.style.zIndex = '10';
                  // debugger;
 
                 //Generate Open btn
@@ -518,7 +518,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let contentBlockTitle = contentParent.querySelector('.category-title');
         let textFromTitle = contentBlockTitle.textContent;
 
-        sideBar.style.zIndex = '1';
+        sideBar.style.zIndex = '10';
 
         // console.log(contentBlock);
         // console.log(categoryTitle);
@@ -529,7 +529,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             let intViewportWidthContent = contentParent.getBoundingClientRect();
             // console.warn('Content view port:');
             // console.log(intViewportWidthContent.width);
-            sideBar.style.zIndex = '1';
+            sideBar.style.zIndex = '10';
             // if(intViewportWidth < 1140)
 
             if(intViewportWidthContent.width < 760){
@@ -542,7 +542,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 sideBarMenu.style.border = '2px solid #0076a3';
                 sideBarMenu.style.borderRadius = '5px';
                 sideBar.style.position = 'relative';
-                sideBar.style.zIndex = '1';
+                sideBar.style.zIndex = '10';
                 sideBar.style.marginBottom = '25px';
 
                 console.warn(textFromTitle);
