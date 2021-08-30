@@ -1471,11 +1471,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
         } else{
             console.warn('Category title on the page!');
             //Search page WITHOUT articles
+            contentBlock.classList.remove('span12');
+            contentBlock.classList.add('span16');
+
+            let categoryTitle = contentBlock.querySelector('.category-title');
+            categoryTitle.style.fontSyze = '2.5em';
+
+            let underCategoryTitleText = categoryTitle.querySelector('.row-fluid');
+            underCategoryTitleText.stylee.fontSize = '18px';
         }
     }
 
     
-
     //Adaptive for /cart
     function contentBlockCart(){
         let contentParent = document.querySelector('#content');
