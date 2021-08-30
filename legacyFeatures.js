@@ -1477,8 +1477,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
             let categoryTitle = contentBlock.querySelector('.category-title');
             categoryTitle.style.fontSyze = '2.5em';
 
-            let underCategoryTitleText = categoryTitle.querySelector('.row-fluid');
-            underCategoryTitleText.stylee.fontSize = '18px';
+            let underCategoryTitleText = contentBlock.querySelectorAll('.row-fluid');
+            for(let i = 0; i < underCategoryTitleText; i++){
+                underCategoryTitleText[1].style.fontSize = '18px';
+            }
+            
+            let searchForm = contentBlock.querySelector('.span10');
+
+            searchForm.classList.remove('span10');
+            searchForm.classList.add('span15');
+
         }
     }
 
