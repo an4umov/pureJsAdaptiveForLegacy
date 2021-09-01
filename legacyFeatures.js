@@ -38,6 +38,13 @@ function preloaderMech(){
     `;
         body.classList.add('page-body__no-scroll');
         body.after(pagePreloader);
+
+        function jumpToPreloader(){
+            pagePreloader.scrollIntoView();
+        }
+
+        jumpToPreloader();
+        
         
         
     } else {
@@ -248,7 +255,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             if(intViewportWidthContent.width < 620){
                 //NewsCard adaptive mobile
-                contentParent.style.paddingLeft = '10px';
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
 
