@@ -1,3 +1,9 @@
+function preloaderMech(){
+    console.warn('preloader working right now');
+}
+
+preloaderMech();
+
 document.addEventListener("DOMContentLoaded", (event) => {
 
     // Header
