@@ -71,7 +71,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let searchBottomParent = header.querySelector('.jq-selectbox__select');
         let searchBottomChild = header.querySelector('.jq-selectbox__select-text');
         let searchBottomBtn = header.querySelector('button');
+
+        let headerBottom = header.querySelector('.header-bottom');
+        let headerTop = header.querySelector('.header-top');
         
+        console.warn(headerBottom);
+        console.warn(headerTop);
+
+        let headerBottomRect = headerBottom.getBoundingClientRect();
+        let headerBottomWidth = headerBottomRect.width;
+
+        console.warn(headerBottomWidth);
+
+        headerTop.style.width = headerBottomWidth + 'px';
+        headerBottom.style.width = '102%';
+
 
 
 
@@ -234,6 +248,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             if(intViewportWidthContent.width < 620){
                 //NewsCard adaptive mobile
+                contentParent.style.paddingLeft = '10px';
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
 
@@ -321,6 +336,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             if(intViewportWidthfooter.width < 610){
                 // console.warn('мобила!');
+                footer.style.paddingLeft = '10px';
                 footerSpan5.style.textAlign = 'right';
                 footerSpan5.style.padding = '0 1.5em 0 0';
                 footerSpan5.style.paddingLeft = '10px';
@@ -712,6 +728,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 // console.warn('мобила!');  
                 
                 //NewsCard adaptive mobile
+                
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
 
@@ -772,6 +789,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                  // console.warn('мобила!');  
                 
                 //NewsCard adaptive mobile
+                contentParent.style.paddingLeft = '10px';
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
 
@@ -832,6 +850,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             // console.log(intViewportWidthContent.width);
 
             if(intViewportWidthContent.width < 1100){
+
+                
 
                 for(let i = 0; i < priceTable.length; i++){
 
@@ -1146,6 +1166,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             // console.log(intViewportWidthContent.width);
 
             if(intViewportWidthContent.width < 650){
+                contentParent.style.paddingLeft = '10px';
+
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
                 contentBlock.style.marginLeft = '0';
@@ -1180,6 +1202,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             if(intViewportWidthContent.width < 1100){
 
                 for(let i = 0; i < priceTable.length; i++){
+                    
 
                     //block to rendering data on shop/product
                     let offerParentForShopProduct = document.createElement('div'); 
@@ -1490,6 +1513,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let intViewportWidthContent = contentParent.getBoundingClientRect();
 
             if(intViewportWidthContent.width < 650){
+                contentParent.style.paddingLeft = '10px';
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
                 contentBlock.style.marginLeft = '0';
@@ -1551,6 +1575,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 sideBar.remove();
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
+                contentParent.style.paddingLeft = '10px';
 
                 for(let i = 0; i < quantityBlock.length; i++){
                     quantityBlock[i].style.minWidth = '100px';
@@ -1560,6 +1585,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 orderFormParent.classList.add('span16');
 
             }
+    }
+
+    //horizontal scroll fix
+    function horizontalScrollBlock(){
+        let intViewportWidth = window.innerWidth;
+        console.warn('Switcher view port:');
+        console.log(intViewportWidth);
+
+        if(intViewportWidth < 950){
+
+            let html = document.querySelector('html');
+            // body.style.display = 'none';
+            html.style.overflowX = 'hidden !important';
+            
+        } else {
+            // console.warn('desktop!');
+        }
     }
 
     //URL Reader
@@ -1727,6 +1769,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
+    function test(){
+        this.style.overflowX = 'hidden';
+    }
+
+    
+
     function preloaderMechClose(){
         // console.warn('preloader working right now');
         let body = document.querySelector('body');
@@ -1758,6 +1806,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     
     numbersSwitcherHeader();
     mainApadtiveSwitcherActivate();
+    horizontalScrollBlock();
     
 
 });

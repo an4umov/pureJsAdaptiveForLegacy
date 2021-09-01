@@ -193,4 +193,13 @@ body{
     body{
         visibility: hidden;
     }
+
+    .online-chat-root-Verbox{
+        display: none !important;
+    }
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
