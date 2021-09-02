@@ -34,14 +34,23 @@
     background-size: 500px;
 }
 
-html {
-  scroll-behavior: smooth; 
+
+@media(max-width: 950px){
+    body{
+        visibility: hidden;
+    }
+
+    .online-chat-root-Verbox{
+        display: none !important;
+    }
 }
 
-body{
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth !important; 
     margin: 0;
 }
-
 
 
 /* offer-card-mobile */
@@ -172,10 +181,11 @@ body{
     top: 0;
     left: 0;
     width: 100vw;
-    height: 110%;
+    height: 100%;
     background-color: #fff;
     z-index: 999999;
     overflow-y: hidden !important;
+    margin-top: -70px;
 }
 
 .pagePreloader__wrapper{
@@ -183,24 +193,72 @@ body{
 }
 
 .pagePreloader__text{
+    display: flex;
     font-size: 18px;
     line-height: 20px;
-    color: #959090;
+    color: #160f0f;
     text-transform: uppercase;
     padding-left: 23px;
+    padding-top: 15px;
 }
 
-@media(max-width: 950px){
-    body{
-        visibility: hidden;
+.pagePreloader__dots {
+    font-size: 7px;
+    position: relative;
+    width: 4em;
+    height: 1em;
+    margin-top: 13px;
+    margin-left: 7px;
+  }
+
+.pagePreloader__dots .pagePreloader__dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50px;
+    background: #160f0f;
+    position: absolute;
+    -webkit-animation: fade 2s ease infinite;
+            animation: fade 2s ease infinite;
+    opacity: 0;
+}
+
+.pagePreloader__dots .pagePreloader__dot:nth-child(1) {
+    left: 0;
+}
+
+.pagePreloader__dots .pagePreloader__dot:nth-child(2) {
+    left: 1.5em;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.pagePreloader__dots .pagePreloader__dot:nth-child(3) {
+    left: 3em;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+@-webkit-keyframes fade {
+    0% {
+      opacity: 0;
     }
-
-    .online-chat-root-Verbox{
-        display: none !important;
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
     }
 }
 
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+@keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
 }
+  
