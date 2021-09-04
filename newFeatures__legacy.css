@@ -181,7 +181,7 @@ html, body {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100%;
+    height: 110%;
     background-color: #fff;
     z-index: 999999;
     overflow-y: hidden !important;
@@ -215,7 +215,7 @@ html, body {
     width: 4px;
     height: 4px;
     border-radius: 50px;
-    background: #160f0f;
+    background: #7a7a7a;
     position: absolute;
     -webkit-animation: fade 2s ease infinite;
             animation: fade 2s ease infinite;
@@ -227,15 +227,15 @@ html, body {
 }
 
 .pagePreloader__dots .pagePreloader__dot:nth-child(2) {
-    left: 1.5em;
-    -webkit-animation-delay: 0.2s;
-    animation-delay: 0.2s;
+    left: 1.3em;
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
 }
 
 .pagePreloader__dots .pagePreloader__dot:nth-child(3) {
-    left: 3em;
-    -webkit-animation-delay: 0.5s;
-    animation-delay: 0.5s;
+    left: 2.6em;
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
 }
 
 @-webkit-keyframes fade {
