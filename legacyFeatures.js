@@ -39,23 +39,16 @@ function preloaderMech(){
                                             <div class="pagePreloader__dot"></div>
                                         </div>
                                     </div>
-                                </div>
-    `;
+                                </div>`;
+
         body.classList.add('page-body__no-scroll');
         body.after(pagePreloader);
 
-        function jumpToPreloader(){
-            pagePreloader.scrollIntoView();
-        }
-
-        jumpToPreloader();
-        
-        
-        
+       
+        pagePreloader.scrollIntoView();
     } else {
         // console.warn('desktop!');
     }
-    
 }
 
 preloaderMech();
@@ -902,7 +895,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                 let offerItemCode = offersListOfItems[0].innerHTML;
                                 let offerItemManufactor = offersListOfItems[1].innerHTML;
                                 let offerItemQuantity = offersListOfItems[2].innerHTML;
-                                let offerItemPrice = offersListOfItems[3].innerHTML;
+                                let offerItemPrice = offersListOfItems[3].innerText;
                                 let offerItemQuality = offersListOfItems[4].innerHTML;
                                 let offerItemCartBtn = offersListOfItems[5].innerHTML;
     
@@ -1003,7 +996,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                 let offerItemDelivery = offersListOfItems[0].innerText;
                                 let offerItemCode = offersListOfItems[1].innerHTML;
                                 let offerItemManufactor = offersListOfItems[2].innerHTML;
-                                let offerItemPrice = offersListOfItems[3].innerHTML;
+                                let offerItemPrice = offersListOfItems[3].innerText;
                                 let offerItemQuality = offersListOfItems[4].innerHTML;
                                 let offerItemCartBtn = offersListOfItems[5].innerHTML;
     
@@ -1093,7 +1086,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                 // console.log(offersListOfItems[1]);
                                 let offerItemManufactor = offersListOfItems[0].innerHTML;
                                 let offerItemQuantity = offersListOfItems[1].innerHTML;
-                                let offerItemPrice = offersListOfItems[2].innerHTML;
+                                let offerItemPrice = offersListOfItems[2].innerText;
                                 let offerItemQuality = offersListOfItems[3].innerHTML;
                                 let offerItemReplacement = offersListOfItems[4].innerHTML;
                                 let offerItemCartBtn = offersListOfItems[5].innerHTML;

@@ -36,9 +36,9 @@
 
 
 @media(max-width: 950px){
-    body{
+    /* body{
         visibility: hidden;
-    }
+    } */
 
     .online-chat-root-Verbox{
         display: none !important;
