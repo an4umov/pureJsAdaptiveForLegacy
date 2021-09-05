@@ -8,6 +8,7 @@ function preloaderMech(){
     if(intViewportWidth < 950){
 
         let body = document.querySelector('body');
+        let html = document.querySelector('html');
         // body.style.display = 'none';
 
         let pagePreloader = document.createElement('section'); 
@@ -41,11 +42,12 @@ function preloaderMech(){
                                     </div>
                                 </div>`;
 
-        body.classList.add('page-body__no-scroll');
-        body.after(pagePreloader);
-
-       
         pagePreloader.scrollIntoView();
+        body.after(pagePreloader);   
+
+        html.style.overflow = 'hidden';
+        
+
     } else {
         // console.warn('desktop!');
     }
@@ -1181,7 +1183,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
-   
     function contentBlochShopCodeMobile(){
         let contentParent = document.querySelector('#content');
         let contentBlock = contentParent.querySelector('.content-block');
@@ -1532,6 +1533,27 @@ document.addEventListener("DOMContentLoaded", (event) => {
                             priceTable[i].remove();
                         }
 
+                        function offerPricePostEdit(){
+                            let priceBlocks = document.querySelectorAll('.mobile-buy__price');
+
+                            for(let i = 0;i < priceBlocks.length ; i++){
+                                let currentItemBlockText = priceBlocks[i].innerText;
+
+                                if(currentItemBlockText === 'По запросу ₽'){
+                                    // console.log('Блок По запросу ниже');
+                                    // console.log(currentItemBlockText);
+
+                                    priceBlocks[i].innerHTML = `Цена по запросу`
+
+                                } else{
+                                    // console.log('обычный');
+                                    // console.log(currentItemBlockText);
+                                }
+                            }
+                        }
+
+                        offerPricePostEdit();
+
                     } 
                 }
             }   
@@ -1619,22 +1641,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
     }
 
-    //horizontal scroll fix
-    function horizontalScrollBlock(){
-        let intViewportWidth = window.innerWidth;
-        console.warn('Switcher view port:');
-        console.log(intViewportWidth);
-
-        if(intViewportWidth < 950){
-
-            let html = document.querySelector('html');
-            // body.style.display = 'none';
-            html.style.overflowX = 'hidden !important';
-            
-        } else {
-            // console.warn('desktop!');
-        }
-    }
 
     //URL Reader
     function urlReader(){
@@ -1804,12 +1810,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
     function preloaderMechClose(){
         // console.warn('preloader working right now');
         let body = document.querySelector('body');
+        let html = document.querySelector('html');
     
         let pagePreloader = document.querySelector('.pagePreloader'); 
         
         pagePreloader.style.display = 'none';
         body.style.visibility = 'visible';
-        body.classList.remove('page-body__no-scroll');
+       
+        body.classList.add('body-scroll-on');
+        // body.style.overflowY = 'visible';
+        // html.style.overflowY = 'visible';
+
+        // body.style.overflowX = 'hidden';
+        html.style.overflow = 'visible';
+
+        body.style.overflowX = 'hidden';
+        html.style.overflowX = 'hidden';
     }
 
     //Main adaptive switcher
@@ -1828,11 +1844,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
    
-    
-    
+      
     numbersSwitcherHeader();
-    mainApadtiveSwitcherActivate();
-    horizontalScrollBlock();
-    
+    mainApadtiveSwitcherActivate();  
 
 });
