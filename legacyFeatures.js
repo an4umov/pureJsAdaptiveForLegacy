@@ -1153,11 +1153,34 @@ document.addEventListener("DOMContentLoaded", (event) => {
                             priceTable[i].remove();
             
                         }
+
+                        
+                        function offerPricePostEdit(){
+                            let priceBlocks = document.querySelectorAll('.mobile-buy__price');
+
+                            for(let i = 0;i < priceBlocks.length ; i++){
+                                let currentItemBlockText = priceBlocks[i].innerText;
+
+                                if(currentItemBlockText === 'По запросу ₽'){
+                                    // console.log('Блок По запросу ниже');
+                                    // console.log(currentItemBlockText);
+
+                                    priceBlocks[i].innerHTML = `Цена по запросу`
+
+                                } else{
+                                    // console.log('обычный');
+                                    // console.log(currentItemBlockText);
+                                }
+                            }
+                        }
+
+                        offerPricePostEdit()
                     }
                 }
             }   
         }
     }
+
    
     function contentBlochShopCodeMobile(){
         let contentParent = document.querySelector('#content');
