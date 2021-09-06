@@ -1625,7 +1625,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if(contentBlock === null){
             
         }else{
-            let readMoreBtns = document.querySelectorAll('.read-more')
+            let readMoreBtns = document.querySelectorAll('.read-more');
             let articles = document.querySelectorAll('article');
             contentBlock.classList.remove('span12');
             contentBlock.classList.add('span16');
@@ -1639,7 +1639,93 @@ document.addEventListener("DOMContentLoaded", (event) => {
             })
         }
     }
+
+    //Adaptive for /article page
+    function contentBlockArticlePage(){
+        let article = document.querySelector('article.b-post');
+        let contentBlock = document.querySelector('.content-block');
+
+
+
+        let intViewportWidth = window.innerWidth;
+        // console.warn('Content view port:');
+        // console.log(intViewportWidthContent.width);
+
+        if(intViewportWidth < 760){
+            // console.warn('мобила!');      
+            
+            contentBlock.classList.remove('span12');
+            contentBlock.classList.add('span16');
+            
+            let ps = article.querySelectorAll('p');
+            ps.forEach(item => {
+                item.style.paddingLeft = '0';
+            })
+
+            let pictures =  article.querySelectorAll('img');
+            pictures.forEach(item => {
+                item.style.width = '95%';
+                item.style.height = 'auto';
+            })
+
+
+        }else {
+            // console.warn('планшет!');  
+
+            //remove left padding from each p
+            let ps = article.querySelectorAll('p');
+            ps.forEach(item => {
+                item.style.paddingLeft = '0';
+            })
+            //resize imgs
+            let pictures =  article.querySelectorAll('img');
+            pictures.forEach(item => {
+                item.style.width = '100%';
+                item.style.height = 'auto';
+            })
+        }
+    }
+
     
+    //Adaptive for /page
+    function contentBlockPagePage(){
+        let articles = document.querySelectorAll('article');
+        let contentBlock = document.querySelector('.content-block');
+
+        let intViewportWidth = window.innerWidth;
+        // console.warn('Content view port:');
+        // console.log(intViewportWidthContent.width);
+
+        if(intViewportWidth < 760){
+            // console.warn('мобила!'); 
+            contentBlock.classList.remove('span12');
+            contentBlock.classList.add('span16');
+
+            contentBlock.style.marginTop = '15px';
+
+            let readMoreBtns = document.querySelectorAll('.read-more');
+            readMoreBtns.forEach(button => {
+                button.style.textAlign = 'center';
+            })
+
+            articles.forEach(article => {
+                article.style.height = 'auto';
+
+            });
+        }else{
+            // console.warn('планшет!');
+            articles.forEach(article => {
+                article.classList.remove('col-sm-6');
+                article.classList.add('col-sm-5');
+
+                article.style.marginRight = '15px';
+            });
+        }
+    }
+
+    contentBlockPagePage();
+
+    //
 
     //Module for blocks with PRICES afterRendering
 
@@ -1765,6 +1851,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
 
+        }else if(window.location.toString().includes("https://lr.ru/article/")){
+            console.warn('This is Article page URL');
+            console.log(window.location.href);
+
+      
+
+            headerAdaptive();
+            legacyFooterBlock();
+
+            helloParalaxBlock();
+            breadCrumbMobile();
+
+            sideBarAdativeForHome();
+            contentBlockArticlePage();
+
+            // console.log(window.location.hostname);
+            // console.log(window.location.pathname);
+
         }else if(window.location.toString().includes("https://lr.ru/cart")){
             console.warn('This is CART PAGE URL');
             console.log(window.location.href);
@@ -1794,7 +1898,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             // console.log(window.location.pathname);
             
         }else if(window.location.toString().includes("https://lr.ru/MyLandRover")){
-            console.warn('This is ARTICLE PAGE URL');
+            console.warn('This is MyLandRover PAGE URL');
             console.log(window.location.href);
 
             headerAdaptive();
@@ -1808,7 +1912,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             // console.log(window.location.pathname);
             
         }else if(window.location.toString().includes("https://lr.ru/mylr/")){
-            console.warn('This is ARTICLE PAGE URL');
+            console.warn('This is /mylr/ PAGE URL');
             console.log(window.location.href);
 
             headerAdaptive();
@@ -1864,7 +1968,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }else if(window.location.toString().includes("https://lr.ru")){
 
 
-            console.warn('This is home PAGE URL');
+            console.warn('This is Home PAGE URL');
             console.log(window.location.href);
             headerAdaptive();
             legacyFooterBlock();
