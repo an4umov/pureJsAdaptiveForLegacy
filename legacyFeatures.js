@@ -5,7 +5,7 @@ function preloaderMech(){
     console.warn('Switcher view port:');
     console.log(intViewportWidth);
 
-    if(intViewportWidth < 950){
+    if(intViewportWidth < 1100){
 
         let body = document.querySelector('body');
         let html = document.querySelector('html');
@@ -82,15 +82,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let headerBottom = header.querySelector('.header-bottom');
         let headerTop = header.querySelector('.header-top');
         
-        console.warn(headerBottom);
-        console.warn(headerTop);
+        // console.warn(headerBottom);
+        // console.warn(headerTop);
 
         let headerBottomRect = headerBottom.getBoundingClientRect();
         let headerBottomWidth = headerBottomRect.width;
 
-        console.warn(headerBottomWidth);
+        // console.warn(headerBottomWidth);
 
-        headerTop.style.width = headerBottomWidth + 'px';
+        headerTop.style.width = '100%';
         headerBottom.style.width = '102%';
 
 
@@ -100,9 +100,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
             // console.warn('no header on the page');
         } else{
 
-            let headerWidth = header.getBoundingClientRect();
+            let intViewportWidth = window.innerWidth;
             // console.warn(headerWidth);
-            if(headerWidth.width < 610){
+            if(intViewportWidth < 610){
                 // console.warn('мобила!');
 
                 headerBottomSearchCatalogBtn.style.width = '120px';
@@ -205,12 +205,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if(helloBlock === null){
             // console.log('No peoples around!');
         } else{
-            let intViewportWidthParalax = helloBlock.getBoundingClientRect();
+            let intViewportWidth = window.innerWidth;
             // console.warn('Paralax view port:');
             // console.log(intViewportWidthParalax.width);
             // if(intViewportWidth < 1140)
 
-            if(intViewportWidthParalax.width < 800){
+            if(intViewportWidth < 800){
 
                 
                 // console.warn('мобила!');
@@ -249,11 +249,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if(contentParent === null){
             // console.log('No sidebars on the page!');
         } else{
-            let intViewportWidthContent = contentParent.getBoundingClientRect();
+            let intViewportWidth = window.innerWidth;
             // console.warn('Content view port:');
             // console.log(intViewportWidthContent.width);
 
-            if(intViewportWidthContent.width < 620){
+            if(intViewportWidth < 620){
                 //NewsCard adaptive mobile
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
@@ -330,7 +330,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             let socialBlock = footer.querySelector('.in-social');
             
 
-            let intViewportWidthfooter = footer.getBoundingClientRect();
+            let intViewportWidth = window.innerWidth;
             
             // console.log(intViewportWidthfooter.width);
             // if(intViewportWidth < 1140)
@@ -340,7 +340,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 footerSpan3Widgets[1].style.display = 'none';
             }
 
-            if(intViewportWidthfooter.width < 610){
+            if(intViewportWidth < 610){
                 // console.warn('мобила!');
                 footer.style.paddingLeft = '10px';
                 footerSpan5.style.textAlign = 'right';
@@ -426,31 +426,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
-    //Switch numbers on page
-    function numbersSwitcherHeader(){
-        let headerPhantom = document.querySelector('.header-top__phantom');
-
-        if(headerPhantom === null){
-            // console.warn('no header on the page');
-        } else{
-            let header = headerPhantom.parentElement;
-            let mainNumber = header.querySelector('.phone');
-            let modalWithNumbersParent =  header.querySelector('.separator-list-sub');
-            let numbersBlock =  modalWithNumbersParent.querySelectorAll('b');
-            let firstNumberBlock =  modalWithNumbersParent.querySelector('b');
-        
-            mainNumber.innerHTML = `<a href="tel:+74956496060">7 (495) 649 60 60</a>`
-        
-            numbersBlock.forEach(item => {
-                item.innerHTML = `<a href="tel:+74956490202">7 (495) 649 02 02</a>`;
-            });
-        
-            firstNumberBlock.innerHTML = `<a href="tel:+74953696060">7 (495) 369 60 60</a>`;
-        
-        
-        }
-
-    }
 
     //Adaptive for sidebarBlock on HOME page
     function sideBarAdativeForHome(){
@@ -471,13 +446,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if(contentParent === null){
             // console.log('No sidebars on the page!');
         } else{
-            let intViewportWidthContent = contentParent.getBoundingClientRect();
+            let intViewportWidth = window.innerWidth;
             // console.warn('Content view port:');
             // console.log(intViewportWidthContent.width);
             sideBar.style.zIndex = '10';
             // if(intViewportWidth < 1140)
 
-            if(intViewportWidthContent.width < 650){
+            if(intViewportWidth < 650){
 
                 //Side bar mobile mech
                 sideBarMenu.style.display = 'flex';
@@ -589,13 +564,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if(contentParent === null){
             // console.log('No sidebars on the page!');
         } else{
-            let intViewportWidthContent = contentParent.getBoundingClientRect();
+            let intViewportWidth = window.innerWidth;
             // console.warn('Content view port:');
             // console.log(intViewportWidthContent.width);
             sideBar.style.zIndex = '10';
             // if(intViewportWidth < 1140)
 
-            if(intViewportWidthContent.width < 760){
+            if(intViewportWidth < 760){
                 // console.warn('мобила!');
 
                 //Side bar mobile mech
@@ -726,11 +701,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if(contentParent === null){
             // console.log('No sidebars on the page!');
         } else{
-            let intViewportWidthContent = contentParent.getBoundingClientRect();
+            let intViewportWidth = window.innerWidth;
             // console.warn('Content view port:');
             // console.log(intViewportWidthContent.width);
 
-            if(intViewportWidthContent.width < 760){
+            if(intViewportWidth < 760){
                 // console.warn('мобила!');  
                 
                 //NewsCard adaptive mobile
@@ -787,11 +762,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if(contentParent === null){
             // console.log('No sidebars on the page!');
         } else{
-            let intViewportWidthContent = contentParent.getBoundingClientRect();
+            let intViewportWidth = window.innerWidth;
             // console.warn('Content view port:');
             // console.log(intViewportWidthContent.width);
 
-            if(intViewportWidthContent.width < 760){
+            if(intViewportWidth < 760){
                  // console.warn('мобила!');  
                 
                 //NewsCard adaptive mobile
@@ -815,11 +790,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if(breadcrumbsList === null){
             // console.log('No sidebars on the page!');
         } else{
-            let intViewportWidthContent = contentParent.getBoundingClientRect();
+            let intViewportWidth = window.innerWidth;
             // console.warn('Content view port:');
             // console.log(intViewportWidthContent.width);
 
-            if(intViewportWidthContent.width < 1140){
+            if(intViewportWidth < 1140){
                  // console.warn('мобила!');  
                 
                 //NewsCard adaptive mobile
@@ -843,7 +818,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
     
-    //Adaptive for /shop/code
+    //Adaptive for /shop/code && for offers in search/
     function contentBlockShopCodeOffers(){
         let priceTable = document.querySelectorAll('.b-price');
 
@@ -851,11 +826,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
             console.log('no offer tables on the PAGE!')
         } else{
             let contentParent = document.querySelector('#content');
-            let intViewportWidthContent = contentParent.getBoundingClientRect();
+            let intViewportWidth = window.innerWidth;
             // console.warn('Content view port:');
             // console.log(intViewportWidthContent.width);
 
-            if(intViewportWidthContent.width < 1100){
+            if(intViewportWidth < 1100){
 
                 
 
@@ -1157,31 +1132,62 @@ document.addEventListener("DOMContentLoaded", (event) => {
                         }
 
                         
-                        function offerPricePostEdit(){
-                            let priceBlocks = document.querySelectorAll('.mobile-buy__price');
-
-                            for(let i = 0;i < priceBlocks.length ; i++){
-                                let currentItemBlockText = priceBlocks[i].innerText;
-
-                                if(currentItemBlockText === 'По запросу ₽'){
-                                    // console.log('Блок По запросу ниже');
-                                    // console.log(currentItemBlockText);
-
-                                    priceBlocks[i].innerHTML = `Цена по запросу`
-
-                                } else{
-                                    // console.log('обычный');
-                                    // console.log(currentItemBlockText);
-                                }
-                            }
-                        }
-
-                        offerPricePostEdit()
+                  
                     }
                 }
+
+                paginationOffersMech();
+                offerPricePostEdit();
+
+            
             }   
         }
     }
+
+    // Mech when using pagination offers download
+    function paginationOffersMech(){
+        let paginationList = document.querySelectorAll('ul.pagination');
+        let subtitleBlock = document.querySelector('.page-title__subtitle');
+    
+        
+        // console.warn(paginationList)
+        paginationList.forEach((list) => {
+            let buttons = list.querySelectorAll('li > a');
+    
+            buttons.forEach((button) => {
+    
+                button.addEventListener('click', (e) => {
+                    e.preventDefault;
+                    subtitleBlock.scrollIntoView({behavior:"smooth"});
+
+                    const targetNode = document.querySelector(".list-view");
+    
+                    let targetParentWatcher = targetNode.parentElement;
+    
+
+                    const observer = new MutationObserver(function(mutations_list) {
+                        mutations_list.forEach(function(mutation) {
+                            mutation.removedNodes.forEach(function(removed_node) {
+                                if(removed_node.classList.contains('list-view')) {
+                                    console.log('#child LIST-VIEW has been removed');
+                                    // observer.disconnect();
+                                    // setTimeout(contentBlockShopCodeOffers, 200);
+                                    // setTimeout(contentBlochShopCodeMobile, 200);
+                                    contentBlockShopCodeOffers();
+                                    contentBlochShopCodeMobile();
+                                }
+                            });
+                        });
+                    });
+
+                    observer.observe(targetParentWatcher, { subtree: false, childList: true });
+    
+                })
+            })
+        });
+    }
+
+    
 
     function contentBlochShopCodeMobile(){
         let contentParent = document.querySelector('#content');
@@ -1192,11 +1198,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let offerCardItemFull = contentBlock.querySelectorAll('.b-item-full');
         
 
-        let intViewportWidthContent = contentParent.getBoundingClientRect();
+        let intViewportWidth = window.innerWidth;
             // console.warn('Content view port:');
             // console.log(intViewportWidthContent.width);
 
-            if(intViewportWidthContent.width < 650){
+            if(intViewportWidth < 650){
                 contentParent.style.paddingLeft = '10px';
 
                 contentBlock.classList.remove('span12');
@@ -1226,11 +1232,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
             console.log('no offer tables on the PAGE!')
         } else{
             let contentParent = document.querySelector('#content');
-            let intViewportWidthContent = contentParent.getBoundingClientRect();
+            let intViewportWidth = window.innerWidth;
             // console.warn('Content view port:');
             // console.log(intViewportWidthContent.width);
 
-            if(intViewportWidthContent.width < 1100){
+            if(intViewportWidth < 1100){
 
                 for(let i = 0; i < priceTable.length; i++){
                     
@@ -1564,9 +1570,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let contentParent = document.querySelector('#content');
         let contentBlock = contentParent.querySelector('.content-block');
 
-        let intViewportWidthContent = contentParent.getBoundingClientRect();
+        let intViewportWidth = window.innerWidth;
 
-            if(intViewportWidthContent.width < 650){
+            if(intViewportWidth < 650){
                 contentParent.style.paddingLeft = '10px';
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
@@ -1585,6 +1591,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             contentBlockShopCodeOffers();
             contentBlochShopCodeMobile();
+
 
 
         } else{
@@ -1609,7 +1616,51 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
+
+    //Adaptive for /MyLandRover
+
+    function contentBlockMyLandRoverPage(){
+        let contentBlock = document.querySelector('.content-block');
+
+        if(contentBlock === null){
+            
+        }else{
+            let readMoreBtns = document.querySelectorAll('.read-more')
+            contentBlock.classList.remove('span12');
+            contentBlock.classList.add('span16');
+
+            readMoreBtns.forEach(button => {
+                button.style.textAlign = 'center';
+            })
+        }
+    }
     
+
+    //Module for blocks with PRICES afterRendering
+
+    function offerPricePostEdit(){
+        let priceBlocks = document.querySelectorAll('.mobile-buy__price');
+
+        if(priceBlocks === null){
+            console.log('no offers on the page');
+        }else{
+            for(let i = 0;i < priceBlocks.length ; i++){
+                let currentItemBlockText = priceBlocks[i].innerText;
+
+                if(currentItemBlockText === 'По запросу ₽'){
+                    // console.log('Блок По запросу ниже');
+                    // console.log(currentItemBlockText);
+
+                    priceBlocks[i].innerHTML = `Цена по запросу`
+
+                } else{
+                    // console.log('обычный');
+                    // console.log(currentItemBlockText);
+                }
+            }
+        }   
+    }
+
     //Adaptive for /cart
     function contentBlockCart(){
         let contentParent = document.querySelector('#content');
@@ -1621,11 +1672,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
         console.warn(orderFormParent);
 
-        let intViewportWidthContent = contentParent.getBoundingClientRect();
+        let intViewportWidth = window.innerWidth;
             // console.warn('Content view port:');
             // console.log(intViewportWidthContent.width);
 
-            if(intViewportWidthContent.width < 1140){
+            if(intViewportWidth < 1140){
                 sideBar.remove();
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
@@ -1640,7 +1691,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             }
     }
-
 
     //URL Reader
     function urlReader(){
@@ -1815,7 +1865,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let pagePreloader = document.querySelector('.pagePreloader'); 
         
         pagePreloader.style.display = 'none';
-        body.style.visibility = 'visible';
+        body.style.display = 'block';
        
         body.classList.add('body-scroll-on');
         // body.style.overflowY = 'visible';
@@ -1826,6 +1876,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
         body.style.overflowX = 'hidden';
         html.style.overflowX = 'hidden';
+
+        offerPricePostEdit();
     }
 
     //Main adaptive switcher
@@ -1843,9 +1895,37 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
+    //Switch numbers on page
+    function numbersSwitcherHeader(){
+        let headerPhantom = document.querySelector('.header-top__phantom');
+
+        if(headerPhantom === null){
+            // console.warn('no header on the page');
+        } else{
+            let header = headerPhantom.parentElement;
+            let mainNumber = header.querySelector('.phone');
+            let modalWithNumbersParent =  header.querySelector('.separator-list-sub');
+            let numbersBlock =  modalWithNumbersParent.querySelectorAll('b');
+            let firstNumberBlock =  modalWithNumbersParent.querySelector('b');
+        
+            mainNumber.innerHTML = `<a href="tel:+74956496060">7 (495) 649 60 60</a>`
+        
+            numbersBlock.forEach(item => {
+                item.innerHTML = `<a href="tel:+74956490202">7 (495) 649 02 02</a>`;
+            });
+        
+            firstNumberBlock.innerHTML = `<a href="tel:+74953696060">7 (495) 369 60 60</a>`;
+        
+        
+        }
+
+    }
+
    
       
     numbersSwitcherHeader();
     mainApadtiveSwitcherActivate();  
 
 });
+
+
