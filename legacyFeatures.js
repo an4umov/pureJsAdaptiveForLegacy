@@ -1626,11 +1626,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
             
         }else{
             let readMoreBtns = document.querySelectorAll('.read-more')
+            let articles = document.querySelectorAll('article');
             contentBlock.classList.remove('span12');
             contentBlock.classList.add('span16');
 
             readMoreBtns.forEach(button => {
                 button.style.textAlign = 'center';
+            })
+
+            articles.forEach(article => {
+                article.style.height = 'auto';
             })
         }
     }
@@ -1798,6 +1803,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
             helloParalaxBlock();
 
             sideBarAdativeForHome();
+            contentBlockMyLandRoverPage();
+            // console.log(window.location.hostname);
+            // console.log(window.location.pathname);
+            
+        }else if(window.location.toString().includes("https://lr.ru/mylr/")){
+            console.warn('This is ARTICLE PAGE URL');
+            console.log(window.location.href);
+
+            headerAdaptive();
+            legacyFooterBlock();
+
+            helloParalaxBlock();
+
+            sideBarAdativeForHome();
+            contentBlockMyLandRoverPage();
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
             
