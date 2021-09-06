@@ -439,6 +439,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
         sideBar.style.zIndex = '10';
+        sideBar.style.paddingLeft = '15px';
 
         // console.log(contentBlock);
         // console.log(categoryTitle);
@@ -557,6 +558,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let textFromTitle = contentBlockTitle.textContent;
 
         sideBar.style.zIndex = '10';
+        sideBar.style.paddingLeft = '15px';
 
         // console.log(contentBlock);
         // console.log(categoryTitle);
@@ -1616,7 +1618,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
-
     //Adaptive for /MyLandRover
 
     function contentBlockMyLandRoverPage(){
@@ -1644,9 +1645,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     function contentBlockArticlePage(){
         let article = document.querySelector('article.b-post');
         let contentBlock = document.querySelector('.content-block');
-
-
-
         let intViewportWidth = window.innerWidth;
         // console.warn('Content view port:');
         // console.log(intViewportWidthContent.width);
@@ -1656,6 +1654,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             
             contentBlock.classList.remove('span12');
             contentBlock.classList.add('span16');
+            contentBlock.style.paddingLeft = '15px';
             
             let ps = article.querySelectorAll('p');
             ps.forEach(item => {
@@ -1668,10 +1667,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 item.style.height = 'auto';
             })
 
-
         }else {
             // console.warn('планшет!');  
-
             //remove left padding from each p
             let ps = article.querySelectorAll('p');
             ps.forEach(item => {
@@ -1691,7 +1688,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     function contentBlockPagePage(){
         let articles = document.querySelectorAll('article');
         let contentBlock = document.querySelector('.content-block');
-
         let intViewportWidth = window.innerWidth;
         // console.warn('Content view port:');
         // console.log(intViewportWidthContent.width);
@@ -1723,10 +1719,67 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
-    contentBlockPagePage();
+  
 
-    //
+    //Adaptive for /page/article
+    function contentBlockPageArticle(){
+        let article = document.querySelector('article.b-post');
+        let contentBlock = document.querySelector('.content-block');
+        let intViewportWidth = window.innerWidth;
 
+        if(intViewportWidth < 760){
+            // console.warn('мобила!');    
+            let ps = article.querySelectorAll('p');
+            ps.forEach(item => {
+                item.style.paddingLeft = '0';
+            })  
+
+            contentBlock.classList.remove('span12');
+            contentBlock.classList.add('span16');
+
+            contentBlock.style.marginTop = '15px';
+
+            let pictures =  article.querySelectorAll('img');
+            pictures.forEach(item => {
+                item.style.width = '95%';
+                item.style.height = 'auto';
+            })
+
+            let iframes = article.querySelectorAll('iframe');
+            if(iframes === null){
+
+            }else{
+                iframes.forEach(iframe => {
+                    iframe.style.width = '100%';
+                });
+            }
+            
+
+        }else {
+            // console.warn('планшет!'); 
+            let ps = article.querySelectorAll('p');
+            ps.forEach(item => {
+                item.style.paddingLeft = '0';
+            })
+
+            let pictures =  article.querySelectorAll('img');
+            pictures.forEach(item => {
+                item.style.width = '95%';
+                item.style.height = 'auto';
+            })
+
+            let iframes = article.querySelectorAll('iframe');
+            if(iframes === null){
+
+            }else{
+                iframes.forEach(iframe => {
+                    iframe.style.width = '100%';
+                });
+            }
+        }
+    }
+
+    
     //Module for blocks with PRICES afterRendering
 
     function offerPricePostEdit(){
@@ -1940,6 +1993,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
             
+        }else if(window.location.toString().includes("https://lr.ru/page/article")){
+            console.warn('This is Pages from HOME PAGE URL');
+            console.log(window.location.href);
+
+            headerAdaptive();
+            legacyFooterBlock();
+
+            helloParalaxBlock();
+
+            sideBarAdativeForHome();
+            contentBlockPageArticle();
+            // console.log(window.location.hostname);
+            // console.log(window.location.pathname);
+
         }else if(window.location.toString().includes("https://lr.ru/page")){
             console.warn('This is Pages from HOME PAGE URL');
             console.log(window.location.href);
@@ -1950,6 +2017,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             helloParalaxBlock();
 
             sideBarAdativeForHome();
+            contentBlockPagePage();
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
 
