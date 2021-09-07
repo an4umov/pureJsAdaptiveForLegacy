@@ -251,7 +251,6 @@
 html,
 body {
     max-width: 100%;
-    scroll-behavior: smooth !important;
     margin: 0;
 }
 
@@ -339,4 +338,12 @@ body {
     .scroll-up::before {
         top: -4px;
     }
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  scroll-behavior: smooth !important; 
 }
