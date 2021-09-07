@@ -1,3 +1,5 @@
+'use strict'
+
 function preloaderMech(){
     // console.warn('preloader working right now');
 
@@ -46,7 +48,23 @@ function preloaderMech(){
         body.after(pagePreloader);   
 
         html.style.overflow = 'hidden';
-        
+
+
+        //Generate scroll btn html
+        let scrollToTopMeta = document.createElement('div'); 
+        scrollToTopMeta.classList.add('scroll-up');
+
+        scrollToTopMeta.innerHTML = `
+                                        <svg class="scroll-up__svg" viewBox="-2 -2 52 52">
+                                            <path class="scroll-up__svg-path" d="
+                                                    M24,0
+                                                    a24,24 0 0,1 0, 48
+                                                    a24,24 0 0,1 0, -48
+                                                " />
+                                        </svg>
+        `
+
+        body.after(scrollToTopMeta); 
 
     } else {
         // console.warn('desktop!');
@@ -56,7 +74,7 @@ function preloaderMech(){
 preloaderMech();
 
 document.addEventListener("DOMContentLoaded", (event) => {
-
+    //Modules   
     // Header
     function headerAdaptive(){
         let headerPhantom = document.querySelector('.header-top__phantom');
@@ -425,7 +443,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
         }
     }
-
 
     //Adaptive for sidebarBlock on HOME page
     function sideBarAdativeForHome(){
@@ -1189,8 +1206,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         });
     }
 
-    
-
     function contentBlochShopCodeMobile(){
         let contentParent = document.querySelector('#content');
         let contentBlock = contentParent.querySelector('.content-block');
@@ -1619,28 +1634,44 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     //Adaptive for /MyLandRover
-
     function contentBlockMyLandRoverPage(){
         let contentBlock = document.querySelector('.content-block');
-
+        let articles = document.querySelectorAll('article');
+        
+        // console.warn('Content view port:');
+        // console.log(intViewportWidthContent.width);
         if(contentBlock === null){
             
         }else{
-            let readMoreBtns = document.querySelectorAll('.read-more');
-            let articles = document.querySelectorAll('article');
-            contentBlock.classList.remove('span12');
-            contentBlock.classList.add('span16');
+            let intViewportWidth = window.innerWidth;
 
-            readMoreBtns.forEach(button => {
-                button.style.textAlign = 'center';
-            })
+            if(intViewportWidth < 760){
+                // console.warn('мобила!');     
+                let readMoreBtns = document.querySelectorAll('.read-more');
+                let articles = document.querySelectorAll('article');
+                contentBlock.classList.remove('span12');
+                contentBlock.classList.add('span16');
+    
+                readMoreBtns.forEach(button => {
+                    button.style.textAlign = 'center';
+                })
+    
+                articles.forEach(article => {
+                    article.style.height = 'auto';
+                })
 
-            articles.forEach(article => {
-                article.style.height = 'auto';
-            })
-        }
+            }else{
+                // console.warn('планшет!');   
+                articles.forEach(article => {
+                    article.style.height = 'auto';
+                    article.classList.remove('col-sm-6');
+                    article.classList.add('col-sm-5');
+                    article.style.marginRight = '15px';
+                });    
+            }
+        } 
     }
-
+        
     //Adaptive for /article page
     function contentBlockArticlePage(){
         let article = document.querySelector('article.b-post');
@@ -1683,7 +1714,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
-    
     //Adaptive for /page
     function contentBlockPagePage(){
         let articles = document.querySelectorAll('article');
@@ -1718,8 +1748,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
             });
         }
     }
-
-  
 
     //Adaptive for /page/article
     function contentBlockPageArticle(){
@@ -1779,7 +1807,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
-    
     //Module for blocks with PRICES afterRendering
 
     function offerPricePostEdit(){
@@ -1836,6 +1863,114 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
     }
 
+    //Scroll btn on mobile
+    function scrollUpToTop(){
+        const offset = 100;
+        const scrollUp = document.querySelector('.scroll-up');
+        const scrollUpSvgPath = document.querySelector('.scroll-up__svg-path');
+        const pathLength = scrollUpSvgPath.getTotalLength();
+    
+        scrollUpSvgPath.style.strokeDasharray = `${pathLength} ${pathLength}`;
+        scrollUpSvgPath.style.transition = 'stroke-dashoffset 20ms';
+    
+        const getTop = () => window.pageYOffset || document.documentElement.scrollTop;
+    
+        //updateDashoffset
+        const updateDashoffset = () => {
+            const height = document.documentElement.scrollHeight - window.innerHeight;
+            const dashoffset = pathLength - (getTop() * pathLength / height);
+            
+            scrollUpSvgPath.style.strokeDashoffset = dashoffset;
+        };
+    
+        //onScroll
+        window.addEventListener('scroll', () => {
+
+            updateDashoffset();
+            if (getTop() > offset) {
+                scrollUp.classList.add('scroll-up--active');
+            } else {
+                scrollUp.classList.remove('scroll-up--active');
+            }
+
+        });
+    
+        //click
+        scrollUp.addEventListener('click', () => {
+            
+    
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+    
+            
+        });
+    }
+    
+    //Adaptive for /contacts \Us page
+    function contentBlockContacts(){
+        let articleContact = document.querySelector('article.b-post');
+        let ps = articleContact.querySelectorAll('p');
+        let imgs = articleContact.querySelectorAll('img');
+
+        let contentBlock = document.querySelector('.content-block');
+
+        
+        let intViewportWidth = window.innerWidth;
+
+        
+
+        if(intViewportWidth < 760){
+            //console.warn('мобила!')
+            contentBlock.classList.remove('span12');
+            contentBlock.classList.add('span16');
+
+            ps.forEach(item => {
+                item.style.paddingLeft = '0';
+            })
+
+            for(let i = 0; i < imgs.length; i++){
+                imgs[4].style.width = '100%';
+                imgs[4].style.height = 'auto';
+                imgs[5].style.width = '100%';
+                imgs[5].style.height = 'auto';
+                imgs[6].style.width = '100%';
+                imgs[6].style.height = 'auto';
+            }
+
+            setTimeout(ymapsDly, 2000);
+
+        }else{
+            //console.warn('планшет!');
+            articleContact.classList.remove('col-sm-5');
+            articleContact.classList.add('col-sm-12');
+
+            ps.forEach(item => {
+                item.style.paddingLeft = '0';
+            })
+
+            for(let i = 0; i < imgs.length; i++){
+                imgs[4].style.width = '100%';
+                imgs[5].style.width = '100%';
+                imgs[6].style.width = '100%';
+            }
+
+            setTimeout(ymapsDly, 2000);
+        }
+
+        function ymapsDly(){
+            let yandexMap = document.querySelector('ymaps');
+
+            yandexMap.style.width = '100%';
+
+        }
+
+    }
+
+    
+
+    //CORE    
     //URL Reader
     function urlReader(){
         let currentUrl 
@@ -1978,7 +2113,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
             
-        }else if(window.location.toString().includes("https://lr.ru/contacts")){
+        }else if(window.location.toString().includes("https://lr.ru/page/view/article/url/contacts")){
             console.warn('This is CONTACTS PAGE URL');
             console.log(window.location.href);
 
@@ -1988,12 +2123,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
             helloParalaxBlock();
 
             sideBarAdativeForHome();
-
-            
+            contentBlockContacts();
             // console.log(window.location.hostname);
             // console.log(window.location.pathname);
-            
-        }else if(window.location.toString().includes("https://lr.ru/page/article")){
+
+        }
+        else if(window.location.toString().includes("https://lr.ru/page/article")){
             console.warn('This is Pages from HOME PAGE URL');
             console.log(window.location.href);
 
@@ -2049,6 +2184,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }   
 
+    //Preloader close mechanics
     function preloaderMechClose(){
         // console.warn('preloader working right now');
         let body = document.querySelector('body');
@@ -2080,6 +2216,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if(intViewportWidth < 1140){
 
             urlReader();
+            scrollUpToTop();
             setTimeout(preloaderMechClose, 2000);
             
         } else {
@@ -2112,7 +2249,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
 
     }
-
    
       
     numbersSwitcherHeader();
