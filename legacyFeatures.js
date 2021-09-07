@@ -403,7 +403,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 firstOpenItemInMenu.classList.add('sideBarOpener');
 
                 firstOpenItemInMenu.addEventListener('click', function(){
-                    contentParent.scrollIntoView({behavior: "smooth"});
+                    contentParent.scrollIntoView();
                     sideBarMenu.style.paddingTop = '90px';
                     sideBarMenuLink.forEach(item => {
                         let liOfa = item.parentElement;
@@ -434,7 +434,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
                 lastCloseItemInMenu.addEventListener('click', function(){
                     sideBarMenu.style.paddingTop = '0';
-                    headerPhantom.scrollIntoView({behavior: "smooth"});
+                    headerPhantom.scrollIntoView();
                     sideBarMenuLink.forEach(item => {
                         let liOfa = item.parentElement;
                         liOfa.style.display = 'none';
@@ -516,7 +516,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     firstOpenItemInMenu.classList.add('sideBarOpener');
 
                     firstOpenItemInMenu.addEventListener('click', function(){
-                        contentParent.scrollIntoView({behavior: "smooth"});
+                        contentParent.scrollIntoView();
                         sideBarMenu.style.paddingTop = '90px';
                         sideBarMenuLink.forEach(item => {
                             let liOfa = item.parentElement;
@@ -547,7 +547,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
                     lastCloseItemInMenu.addEventListener('click', function(){
                         sideBarMenu.style.paddingTop = '0';
-                        headerPhantom.scrollIntoView({behavior: "smooth"});
+                        headerPhantom.scrollIntoView();
                         sideBarMenuLink.forEach(item => {
                             let liOfa = item.parentElement;
                             liOfa.style.display = 'none';
@@ -681,7 +681,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 breadcrumbsList.style.marginTop = '20px';
 
                 function lastItemScroll(){
-                    lastBreadcrumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                    lastBreadcrumb.scrollIntoView({ block: 'end', behavior:"smooth"});
                 }
                 setTimeout(lastItemScroll, 3000);
 
@@ -984,7 +984,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     
                 button.addEventListener('click', (e) => {
                     e.preventDefault;
-                    subtitleBlock.scrollIntoView({behavior:"smooth"});
+                    subtitleBlock.scrollIntoView();
 
                     const targetNode = document.querySelector(".list-view");
                     let targetParentWatcher = targetNode.parentElement;
@@ -1016,7 +1016,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
         if(linksWithPic === null || offersPictures === null){
 
-        }else{            
+        }else{
+            
             linksWithPic.forEach(item => {
                 item.style.userSelect = 'none';
                 item.style.pointerEvents = 'none';
@@ -1027,7 +1028,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 item.style.pointerEvents = 'none';
             })
         }
+
     }
+
 
     //Adaptive for /shop/code on mobile (NOT OFFERS)/
     function contentBlochShopCodeMobile(){
