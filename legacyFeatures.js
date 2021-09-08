@@ -369,7 +369,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let sideBarMenuLink = sideBarMenu.querySelectorAll('a');
 
         sideBar.style.zIndex = '10';
-        sideBar.style.paddingLeft = '15px';
+        
 
         if(contentParent === null){
             // console.log('No sidebars on the page!');
@@ -477,7 +477,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let textFromTitle = contentBlockTitle.textContent;
 
         sideBar.style.zIndex = '10';
-        sideBar.style.paddingLeft = '15px';
+
 
         if(contentParent === null){
             // console.log('No sidebars on the page!');
@@ -650,7 +650,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                  // console.warn('мобила!');  
                 
                 //NewsCard adaptive mobile
-                contentParent.style.paddingLeft = '10px';
+                // contentParent.style.paddingLeft = '10px';
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
                 bCatalogFull.style.display = 'flex';
@@ -1041,7 +1041,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let intViewportWidth = window.innerWidth;
 
             if(intViewportWidth < 650){
-                contentParent.style.paddingLeft = '10px';
+                // contentParent.style.paddingLeft = '10px';
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
                 contentBlock.style.marginLeft = '0';
@@ -1367,7 +1367,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let intViewportWidth = window.innerWidth;
 
             if(intViewportWidth < 650){
-                contentParent.style.paddingLeft = '10px';
+                // contentParent.style.paddingLeft = '10px';
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
                 contentBlock.style.marginLeft = '0';
@@ -1455,7 +1455,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             
             contentBlock.classList.remove('span12');
             contentBlock.classList.add('span16');
-            contentBlock.style.paddingLeft = '15px';
+            contentBlock.style.paddingLeft = '5px';
             
             let ps = article.querySelectorAll('p');
             ps.forEach(item => {
@@ -1610,7 +1610,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 sideBar.remove();
                 contentBlock.classList.remove('span12');
                 contentBlock.classList.add('span16');
-                contentParent.style.paddingLeft = '10px';
+                contentParent.style.paddingLeft = '5px';
 
                 for(let i = 0; i < quantityBlock.length; i++){
                     quantityBlock[i].style.minWidth = '100px';
