@@ -1030,8 +1030,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
 
     }
-
-
+    
     //Adaptive for /shop/code on mobile (NOT OFFERS)/
     function contentBlochShopCodeMobile(){
         let contentParent = document.querySelector('#content');
@@ -1388,22 +1387,41 @@ document.addEventListener("DOMContentLoaded", (event) => {
         } else{
             console.warn('Category title on the page!');
             //Search page WITHOUT articles
-            contentBlock.classList.remove('span12');
-            contentBlock.classList.add('span16');
-
-            let categoryTitle = contentBlock.querySelector('.category-title');
-            categoryTitle.style.fontSyze = '2.5em';
-
-            let underCategoryTitleText = contentBlock.querySelectorAll('.row-fluid');
-            for(let i = 0; i < underCategoryTitleText; i++){
-                underCategoryTitleText[1].style.fontSize = '18px';
-            }
+            let intViewportWidth = window.innerWidth;
             
-            let searchForm = contentBlock.querySelector('.span10');
+            if(intViewportWidth < 760){
+                // console.warn('мобила!');     
+                contentBlock.classList.remove('span12');
+                contentBlock.classList.add('span16');
+    
 
-            searchForm.classList.remove('span10');
-            searchForm.classList.add('span15');
+                categoryTitle.style.fontSize = '27px';
+                categoryTitle.style.paddingTop = '8px';
+                categoryTitle.style.marginTop = '10px';
+                categoryTitle.style.marginBottom = '10px';
+    
+                let underCategoryTitleText = contentBlock.querySelectorAll('.row-fluid');
+                for(let i = 0; i < underCategoryTitleText; i++){
+                    underCategoryTitleText[1].style.fontSize = '18px';
+                }
+                
+                let searchForm = contentBlock.querySelector('.span10');
+    
+                searchForm.classList.remove('span10');
+                searchForm.classList.add('span15');
 
+            }else{
+                // console.warn('планшет!');  
+                let underCategoryTitleText = contentBlock.querySelectorAll('.row-fluid');
+                for(let i = 0; i < underCategoryTitleText; i++){
+                    underCategoryTitleText[1].style.fontSize = '18px';
+                }
+                
+                let searchForm = contentBlock.querySelector('.span10');
+    
+                searchForm.classList.remove('span10');
+                searchForm.classList.add('span15');
+            }
         }
     }
 
