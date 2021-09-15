@@ -691,7 +691,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
     
-    //Adaptive for /shop/code && for OFFERS in search/
+    //Adaptive for /shop/code main OFFERS catalog && for OFFERS in search/
     function contentBlockShopCodeOffers(){
         let priceTable = document.querySelectorAll('.b-price');
 
@@ -1101,7 +1101,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                 let offerItemCode = offersListOfItems[0].innerHTML;
                                 let offerItemManufactor = offersListOfItems[1].innerHTML;
                                 let offerItemQuantity = offersListOfItems[2].innerHTML;
-                                let offerItemPrice = offersListOfItems[3].innerHTML;
+                                let offerItemPrice = offersListOfItems[3].innerText;
                                 let offerItemQuality = offersListOfItems[4].innerHTML;
                                 let offerItemCartBtn = offersListOfItems[5].innerHTML;
 
@@ -1186,7 +1186,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                 let offerItemDelivery = offersListOfItems[0].innerText;
                                 let offerItemCode = offersListOfItems[1].innerHTML;
                                 let offerItemManufactor = offersListOfItems[2].innerHTML;
-                                let offerItemPrice = offersListOfItems[3].innerHTML;
+                                let offerItemPrice = offersListOfItems[3].innerText;
                                 let offerItemQuality = offersListOfItems[4].innerHTML;
                                 let offerItemCartBtn = offersListOfItems[5].innerHTML;
     
@@ -1271,7 +1271,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                 let lastOffersRow = offerRowsInTable[offerRowsInTable.length - 1];
                                 let offerItemManufactor = offersListOfItems[0].innerHTML;
                                 let offerItemQuantity = offersListOfItems[1].innerHTML;
-                                let offerItemPrice = offersListOfItems[2].innerHTML;
+                                let offerItemPrice = offersListOfItems[2].innerText;
                                 let offerItemQuality = offersListOfItems[3].innerHTML;
                                 let offerItemReplacement = offersListOfItems[4].innerHTML;
                                 let offerItemCartBtn = offersListOfItems[5].innerHTML;
@@ -1945,6 +1945,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             helloParalaxBlock();
 
             sideBarAdativeForHome();
+            contentBlockPagePage();
 
         }else if(window.location.toString().includes("https://lr.ru")){
             console.warn('This is Home PAGE URL');
