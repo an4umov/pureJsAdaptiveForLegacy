@@ -1681,6 +1681,39 @@ document.addEventListener("DOMContentLoaded", (event) => {
             });
         });
     }
+
+    //Call MESSANGER WIDGET
+    function verboxMessageCall(){
+        // let callBtn = document.querySelector('.widget-call-btn');
+        let body = document.querySelector('body');
+        let verboxChatParent = document.querySelector('.online-chat-root-Verbox');
+        let verboxChatMainBlock = verboxChatParent.querySelector('#supportTrigger');
+
+        //Create callBtn
+        let callBtn = document.createElement('section'); 
+        callBtn.classList.add('widget-call-btn');
+        callBtn.innerHTML =`?`;
+
+        body.after(callBtn);   
+
+        //Disapear move mech part1
+        function moveDisapearPart1(){
+            callBtn.style.left = '-20px';
+        }
+
+        //Disapear move mech part2
+        function moveDisapearPart2(){
+            callBtn.style.left = '-80px';
+        }
+
+        callBtn.addEventListener('click', function(){
+            moveDisapearPart1();
+            setTimeout(moveDisapearPart2, 300);
+        });
+
+    }
+
+    verboxMessageCall()
     
     //Adaptive for /contacts \Us page
     function contentBlockContacts(){
