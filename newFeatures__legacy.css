@@ -428,6 +428,6 @@ textarea {
 
     /*Hello block PARALAX features*/
     .hello-block{
-        display: none!important;
+        display: none;
     }
 }

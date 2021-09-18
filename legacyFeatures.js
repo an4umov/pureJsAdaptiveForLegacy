@@ -195,21 +195,31 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let helloBlockParalax = document.querySelector('#hello-block-viewport');
         let helloBlockPeoples = document.querySelector('.desk-background');
 
-        let intViewportWidth = window.innerWidth;
-        
-        console.log(helloBlock);
-        console.log(helloBlockParalax);
-        console.log(helloBlockPeoples);
+        if( helloBlockParalax === null || helloBlockPeoples === null){
 
-        if(intViewportWidth < 700){
+        }else{
 
-            helloBlock.style.display = 'none';
-        }else {
-            // console.warn('планшет!');
-            helloBlock.style.display = 'none';
-        }
-        
+            let intViewportWidth = window.innerWidth;
+            
+            console.log(helloBlock);
+            console.log(helloBlockParalax);
+            console.log(helloBlockPeoples);
+
+            if(intViewportWidth < 700){
+
+                helloBlock.style.display = 'block';
+            }else {
+                // console.warn('планшет!');
+                helloBlock.style.display = 'block';
+                helloBlock.style.height = '20em';
+                
+                helloBlockPeoples.style.backgroundPosition = '0% 90%';   
+                helloBlockPeoples.style.backgroundSize = '60%';   
+            }
+        }   
     }
+
+ 
 
      //Adaptive for contentBlockOnHomePage
     function contentBlockHome(){
@@ -1984,6 +1994,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
         }else if(window.location.toString().includes("https://lr.ru/offroad")){
             console.warn('This is DEFENDER Studio PAGE URL');
+            console.log(window.location.href);
+
+            headerAdaptive();
+            legacyFooterBlock();
+
+            // helloParalaxBlock();
+
+            sideBarAdativeForHome();
+            contentBlockPagePage();
+
+        }else if(window.location.toString().includes("https://lr.ru/about")){
+            console.warn('This is ABOUT PAGE URL');
             console.log(window.location.href);
 
             headerAdaptive();
