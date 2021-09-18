@@ -1687,33 +1687,47 @@ document.addEventListener("DOMContentLoaded", (event) => {
         // let callBtn = document.querySelector('.widget-call-btn');
         let body = document.querySelector('body');
         let verboxChatParent = document.querySelector('.online-chat-root-Verbox');
-        let verboxChatMainBlock = verboxChatParent.querySelector('#supportTrigger');
+        let verboxChatMainBlock = verboxChatParent.querySelector('.online-chat-root-Verbox #supportTrigger');
+        let verboxChatMainClose = verboxChatParent.querySelector('.close');
 
-        //Create callBtn
-        let callBtn = document.createElement('section'); 
-        callBtn.classList.add('widget-call-btn');
-        callBtn.innerHTML =`?`;
+        if(verboxChatParent === null){
 
-        body.after(callBtn);   
+        }else{
+             //Create callBtn
+            let callBtn = document.createElement('section'); 
+            callBtn.classList.add('widget-call-btn');
+            callBtn.innerHTML =`?`;
 
-        //Disapear move mech part1
-        function moveDisapearPart1(){
-            callBtn.style.left = '-20px';
+            body.after(callBtn);   
+
+            //callBtn Disapear move mech part1
+            function moveDisapearPart1(){
+                callBtn.style.left = '-20px';
+            }
+
+            //callBtn Disapear move mech part2
+            function moveDisapearPart2(){
+                callBtn.style.left = '-80px';
+            }
+
+            //verbox chat block mech
+            function chatOn(){
+                console.warn(verboxChatParent);
+                // console.warn(verboxChatMainClose);
+                verboxChatParent.classList.add('online-chat-root-Verbox--active');
+            
+            }
+
+            //mech core on click
+            callBtn.addEventListener('click', function(){
+                moveDisapearPart1();
+                setTimeout(moveDisapearPart2, 300);
+                setTimeout(chatOn, 500);
+            });
         }
-
-        //Disapear move mech part2
-        function moveDisapearPart2(){
-            callBtn.style.left = '-80px';
-        }
-
-        callBtn.addEventListener('click', function(){
-            moveDisapearPart1();
-            setTimeout(moveDisapearPart2, 300);
-        });
-
     }
 
-    verboxMessageCall()
+
     
     //Adaptive for /contacts \Us page
     function contentBlockContacts(){
@@ -2003,6 +2017,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             urlReader();
             scrollUpToTop();
             setTimeout(preloaderMechClose, 2000);
+            setTimeout( verboxMessageCall, 2500);
             
         } else {
             // console.warn('desktop!');

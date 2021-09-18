@@ -353,7 +353,7 @@ textarea {
     border-radius: 10px;
     text-align: right;
     padding-right: 5px;
-    font-size: 55px;
+    font-size: 37px;
     color: #fff;
     font-weight: bold;
     transition: 0.3s;
@@ -374,13 +374,14 @@ textarea {
 
     .online-chat-root-Verbox #supportTrigger{
         bottom: 50px !important;
-        left: -90px !important;
+        left: 20px !important;
         right: 0 !important;
         transition: 0.3s !important;
+        max-width: 150px !important;
     }
 
     .trigger-type.primary-bottom.secondary-right .trigger-popup .inner[data-v-79add135] {
-        margin-right: 95% !important;
+        margin-right: 10% !important;
         min-width: 130px !important;
     }
 
@@ -417,5 +418,12 @@ textarea {
         left: 90% !important;
         right: auto !important;
         padding-top: 3px !important;
+      
     }
+
+    /* styles to verbox chat room mechanic */
+    .online-chat-root-Verbox--active{
+        display: block !important;
+    }
+
 }
