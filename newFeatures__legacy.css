@@ -426,4 +426,8 @@ textarea {
         display: block !important;
     }
 
+    /*Hello block PARALAX features*/
+    .hello-block{
+        display: none!important;
+    }
 }

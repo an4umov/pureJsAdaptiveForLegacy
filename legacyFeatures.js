@@ -192,21 +192,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Hello Block | Paralax
     function helloParalaxBlock(){
         let helloBlock = document.querySelector('.hello-block');
+        let helloBlockParalax = document.querySelector('#hello-block-viewport');
         let helloBlockPeoples = document.querySelector('.desk-background');
 
-        if(helloBlock === null){
-            // console.log('No peoples around!');
-        } else{
-            let intViewportWidth = window.innerWidth;
+        let intViewportWidth = window.innerWidth;
+        
+        console.log(helloBlock);
+        console.log(helloBlockParalax);
+        console.log(helloBlockPeoples);
 
-            if(intViewportWidth < 800){
+        if(intViewportWidth < 700){
 
-                helloBlock.style.display = 'none';
-            }else {
-                // console.warn('планшет!');
-                helloBlock.style.display = 'none';
-            }
+            helloBlock.style.display = 'none';
+        }else {
+            // console.warn('планшет!');
+            helloBlock.style.display = 'none';
         }
+        
     }
 
      //Adaptive for contentBlockOnHomePage
@@ -1727,8 +1729,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
-
-    
     //Adaptive for /contacts \Us page
     function contentBlockContacts(){
         let articleContact = document.querySelector('article.b-post');
@@ -1838,7 +1838,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             sideBarAdativeForHome();
             breadCrumbMobile();
-            helloParalaxBlock();
+            // helloParalaxBlock();
 
             contentBlockShopProductOffers();
             contentBlochShopProductMobile();
@@ -1852,7 +1852,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             sideBarAdativeForHome();
             breadCrumbMobile();
-            helloParalaxBlock();
+            // helloParalaxBlock();
 
             contentBlockShopCodeOffers();
             contentBlochShopCodeMobile();
@@ -1866,7 +1866,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             legacyFooterBlock();
 
             sideBarAdativeForHome();
-            helloParalaxBlock();
+            // helloParalaxBlock();
 
             contentBlockShopType();
             breadCrumbMobile();
@@ -1878,7 +1878,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            helloParalaxBlock();
+            // helloParalaxBlock();
 
             sideBarAdativeForShop();
             contentBlockShop(); 
@@ -1890,7 +1890,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            helloParalaxBlock();
+            // helloParalaxBlock();
             breadCrumbMobile();
 
             sideBarAdativeForHome();
@@ -1903,7 +1903,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            helloParalaxBlock();
+            // helloParalaxBlock();
 
             contentBlockCart();
         
@@ -1914,7 +1914,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            helloParalaxBlock();
+            // helloParalaxBlock();
 
             contentBlockSearchPage();
 
@@ -1927,7 +1927,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            helloParalaxBlock();
+            // helloParalaxBlock();
 
             sideBarAdativeForHome();
             contentBlockMyLandRoverPage();
@@ -1939,7 +1939,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            helloParalaxBlock();
+            // helloParalaxBlock();
 
             sideBarAdativeForHome();
             contentBlockMyLandRoverPage();
@@ -1951,7 +1951,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            helloParalaxBlock();
+            // helloParalaxBlock();
 
             sideBarAdativeForHome();
             contentBlockContacts();
@@ -1964,7 +1964,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            helloParalaxBlock();
+            // helloParalaxBlock();
 
             sideBarAdativeForHome();
             contentBlockPageArticle();
@@ -1977,7 +1977,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            helloParalaxBlock();
+            // helloParalaxBlock();
 
             sideBarAdativeForHome();
             contentBlockPagePage();
@@ -1989,7 +1989,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            helloParalaxBlock();
+            // helloParalaxBlock();
 
             sideBarAdativeForHome();
             contentBlockPagePage();
@@ -2001,7 +2001,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             legacyFooterBlock();
 
             sideBarAdativeForHome();
-            helloParalaxBlock();
+            // helloParalaxBlock();
 
             contentBlockHome();
         }
