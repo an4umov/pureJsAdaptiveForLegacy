@@ -219,8 +219,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }   
     }
 
- 
-
      //Adaptive for contentBlockOnHomePage
     function contentBlockHome(){
         let contentParent = document.querySelector('#content');
