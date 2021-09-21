@@ -195,26 +195,47 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let helloBlockParalax = document.querySelector('#hello-block-viewport');
         let helloBlockPeoples = document.querySelector('.desk-background');
 
-        if( helloBlockParalax === null || helloBlockPeoples === null){
-
+        if(helloBlock === null){
+            // no helloBlock on the page
         }else{
+            //paralax or not checking 
+            if(helloBlockParalax === null){
+                //NO paralax construction in helloBlock
+                let intViewportWidth = window.innerWidth;
+    
+                if(intViewportWidth < 700){
+                    // console.warn('мобила!');
+                    helloBlock.style.display = 'block';
+                    helloBlock.style.height = '16em';
+                    helloBlock.style.boxShadow = '4px 4px 10px 2px rgba(0, 0, 0, 0.49) inset';
+                    helloBlock.style.pointerEvents = 'none';
+                }else {
+                    // console.warn('планшет!');
+                    helloBlock.style.display = 'block';
+                    helloBlock.style.boxShadow = '4px 4px 10px 2px rgba(0, 0, 0, 0.49) inset';
+                    helloBlock.style.height = '20em';
+                    helloBlock.style.pointerEvents = 'none';
+                }
 
-            let intViewportWidth = window.innerWidth;
-            
-            console.log(helloBlock);
-            console.log(helloBlockParalax);
-            console.log(helloBlockPeoples);
-
-            if(intViewportWidth < 700){
-
-                helloBlock.style.display = 'block';
-            }else {
-                // console.warn('планшет!');
-                helloBlock.style.display = 'block';
-                helloBlock.style.height = '20em';
-                
-                helloBlockPeoples.style.backgroundPosition = '0% 90%';   
-                helloBlockPeoples.style.backgroundSize = '60%';   
+            }else{
+                //Paralax construction in helloBlock
+                let intViewportWidth = window.innerWidth;
+    
+                if(intViewportWidth < 700){
+                    // console.warn('мобила!');
+                    helloBlock.style.display = 'block';
+                    helloBlock.style.height = '16em';
+                    helloBlock.style.pointerEvents = 'none';
+                    helloBlockPeoples.style.backgroundPosition = '-10% 90%';   
+                    helloBlockPeoples.style.backgroundSize = '40%';  
+                }else {
+                    // console.warn('планшет!');
+                    helloBlock.style.display = 'block';
+                    helloBlock.style.height = '20em';
+                    helloBlock.style.pointerEvents = 'none';
+                    helloBlockPeoples.style.backgroundPosition = '0% 90%';   
+                    helloBlockPeoples.style.backgroundSize = '60%';   
+                }
             }
         }   
     }
@@ -393,7 +414,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 sideBarMenu.style.display = 'flex';
                 sideBarMenu.style.flexDirection = 'column';
                 sideBarMenu.style.textAlign = 'center';
-                sideBarMenu.style.border = '2px solid #0076a3';
+                sideBarMenu.style.border = '2px solid #a2a2a2';
+                sideBarMenu.style.boxShadow = '4px 4px 10px 1px rgb(34 60 80 / 30%)';
                 sideBarMenu.style.borderRadius = '5px';
                 sideBar.style.position = 'relative';
                 sideBar.style.zIndex = '10';
@@ -439,8 +461,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 
                 lastCloseItemInMenu.classList.add('sideBarClose');
                 lastCloseItemInMenu.style.display = 'none';
-                lastCloseItemInMenu.style.border = '2px solid #0076a3';
+                lastCloseItemInMenu.style.border = '2px solid #a2a2a2';
+                lastCloseItemInMenu.style.boxShadow = '4px 4px 10px 1px rgb(34 60 80 / 30%)';
                 lastCloseItemInMenu.style.borderRadius = '5px';
+                lastCloseItemInMenu.style.paddingBottom = '10px';
 
                 lastCloseItemInMenu.addEventListener('click', function(){
                     sideBarMenu.style.paddingTop = '0';
@@ -475,7 +499,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         } 
     }
 
-    //Adaptive for sidebarBlock on HOME page
+    //Adaptive for sidebarBlock on SHOP page
     function sideBarAdativeForShop(){
         let contentParent = document.querySelector('#content');
         let headerPhantom = document.querySelector('.header-top__phantom');
@@ -500,7 +524,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 sideBarMenu.style.display = 'flex';
                 sideBarMenu.style.flexDirection = 'column';
                 sideBarMenu.style.textAlign = 'center';
-                sideBarMenu.style.border = '2px solid #0076a3';
+                sideBarMenu.style.border = '2px solid #a2a2a2';
+                sideBarMenu.style.boxShadow = '4px 4px 10px 1px rgb(34 60 80 / 30%)';
                 sideBarMenu.style.borderRadius = '5px';
                 sideBar.style.position = 'relative';
                 sideBar.style.zIndex = '10';
@@ -552,8 +577,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     
                     lastCloseItemInMenu.classList.add('sideBarClose');
                     lastCloseItemInMenu.style.display = 'none';
-                    lastCloseItemInMenu.style.border = '2px solid #0076a3';
+                    lastCloseItemInMenu.style.border = '2px solid #a2a2a2';
+                    lastCloseItemInMenu.style.boxShadow = '4px 4px 10px 1px rgb(34 60 80 / 30%)';
                     lastCloseItemInMenu.style.borderRadius = '5px';
+                    lastCloseItemInMenu.style.paddingBottom = '10px';
 
                     lastCloseItemInMenu.addEventListener('click', function(){
                         sideBarMenu.style.paddingTop = '0';
@@ -1846,7 +1873,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             sideBarAdativeForHome();
             breadCrumbMobile();
-            // helloParalaxBlock();
+            helloParalaxBlock();
 
             contentBlockShopProductOffers();
             contentBlochShopProductMobile();
@@ -1860,7 +1887,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             sideBarAdativeForHome();
             breadCrumbMobile();
-            // helloParalaxBlock();
+            helloParalaxBlock();
 
             contentBlockShopCodeOffers();
             contentBlochShopCodeMobile();
@@ -1874,7 +1901,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             legacyFooterBlock();
 
             sideBarAdativeForHome();
-            // helloParalaxBlock();
+            helloParalaxBlock();
 
             contentBlockShopType();
             breadCrumbMobile();
@@ -1886,7 +1913,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            // helloParalaxBlock();
+            helloParalaxBlock();
 
             sideBarAdativeForShop();
             contentBlockShop(); 
@@ -1898,7 +1925,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            // helloParalaxBlock();
+            helloParalaxBlock();
             breadCrumbMobile();
 
             sideBarAdativeForHome();
@@ -1911,7 +1938,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            // helloParalaxBlock();
+            helloParalaxBlock();
 
             contentBlockCart();
         
@@ -1922,7 +1949,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            // helloParalaxBlock();
+            helloParalaxBlock();
 
             contentBlockSearchPage();
 
@@ -1935,7 +1962,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            // helloParalaxBlock();
+            helloParalaxBlock();
 
             sideBarAdativeForHome();
             contentBlockMyLandRoverPage();
@@ -1947,7 +1974,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            // helloParalaxBlock();
+            helloParalaxBlock();
 
             sideBarAdativeForHome();
             contentBlockMyLandRoverPage();
@@ -1959,7 +1986,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            // helloParalaxBlock();
+            helloParalaxBlock();
 
             sideBarAdativeForHome();
             contentBlockContacts();
@@ -1972,7 +1999,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            // helloParalaxBlock();
+            helloParalaxBlock();
 
             sideBarAdativeForHome();
             contentBlockPageArticle();
@@ -1985,7 +2012,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            // helloParalaxBlock();
+            helloParalaxBlock();
 
             sideBarAdativeForHome();
             contentBlockPagePage();
@@ -1997,7 +2024,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            // helloParalaxBlock();
+            helloParalaxBlock();
 
             sideBarAdativeForHome();
             contentBlockPagePage();
@@ -2009,7 +2036,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             headerAdaptive();
             legacyFooterBlock();
 
-            // helloParalaxBlock();
+            helloParalaxBlock();
 
             sideBarAdativeForHome();
             contentBlockPagePage();
@@ -2021,7 +2048,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             legacyFooterBlock();
 
             sideBarAdativeForHome();
-            // helloParalaxBlock();
+            helloParalaxBlock();
 
             contentBlockHome();
         }
