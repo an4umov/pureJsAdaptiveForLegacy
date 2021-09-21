@@ -1007,6 +1007,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 }
                 paginationOffersMech();
                 offerPricePostEdit();
+                offersQualityTooltip();
                 offersImgDisable();
             }   
         }
@@ -1378,26 +1379,39 @@ document.addEventListener("DOMContentLoaded", (event) => {
                             priceTable[i].remove();
                         }
 
-                        function offerPricePostEdit(){
-                            let priceBlocks = document.querySelectorAll('.mobile-buy__price');
-
-                            for(let i = 0;i < priceBlocks.length ; i++){
-                                let currentItemBlockText = priceBlocks[i].innerText;
-
-                                if(currentItemBlockText === 'По запросу ₽'){
-
-                                    priceBlocks[i].innerHTML = `Цена по запросу`
-
-                                } else{
-                                    // console.log('обычный');
-                                    // console.log(currentItemBlockText);
-                                }
-                            }
-                        }
-
                     } 
                 }
             }   
+        }
+    }
+
+    //OFFERS QUALITY CLICK
+    function offersQualityTooltip(){
+        let offersQualityBlocks = document.querySelectorAll('.mobile-properties__quality');
+
+        if(offersQualityBlocks === null){
+            // console.log('no quality blocks in offers');
+        }else{
+            for( let i = 0; i < offersQualityBlocks.length; i++){
+                let qualityIcon = offersQualityBlocks[i].querySelector('.icon-sprite-info');
+                let qualityTooltipBlock = offersQualityBlocks[i].querySelector('.mobile-properties__quality-tooltip');
+                let rectOfCurrentIcon = offersQualityBlocks[i].getBoundingClientRect();
+                if(qualityIcon === null){
+
+                }else{
+                    let qualityIconTitle = qualityIcon.title;
+                    qualityTooltipBlock.innerText = qualityIconTitle;
+                    
+                    qualityIcon.addEventListener('click', function(){
+                        qualityTooltipBlock.style.display = 'grid';
+                    });
+
+                    window.addEventListener('scroll', function(){
+                        qualityTooltipBlock.style.display = 'none';
+                    });
+                    
+                }  
+            }
         }
     }
 
@@ -1861,6 +1875,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         html.style.overflowX = 'hidden';
 
         offerPricePostEdit();
+        offersQualityTooltip();
         offersImgDisable();
     }
     

@@ -447,4 +447,20 @@ textarea {
         box-shadow: 4px 4px 10px 0px rgb(34 60 80 / 30%) inset;
         padding-top: 3px !important;
     }
+
+    /*offers tooltip*/
+    .mobile-properties__quality-tooltip{
+        display: none;
+        align-items: center;
+        position: absolute;
+        max-width: 200px;
+        min-height: 60px;
+        background: #fff;
+        border: 1px solid #4fb7fd;
+        border-radius: 5px;
+        padding: 5px 5px 5px 5px;
+        top: 10px;
+        left: 4px;
+        box-shadow: 4px 4px 10px 0px rgb(34 60 80 / 22%);
+    }
 }
