@@ -720,7 +720,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 function lastItemScroll(){
                     lastBreadcrumb.scrollIntoView({ block: 'end', inline: 'end', behavior:"smooth"});
                 }
-                setTimeout(lastItemScroll, 3000);
+                // setTimeout(lastItemScroll, 3000);
 
             }else {
                 // console.warn('планшет!');  
