@@ -793,6 +793,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             
                                                                         <div class="mobile-properties__quality">
                                                                             ${offerItemQuality}
+                                                                            <div class="mobile-properties__quality-tooltip"></div>
                                                                         </div> 
                                                 
                                                                     </div>
@@ -877,6 +878,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             
                                                                         <div class="mobile-properties__quality">
                                                                             ${offerItemQuality}
+                                                                            <div class="mobile-properties__quality-tooltip"></div>
                                                                         </div> 
                                                 
                                                                     </div>
@@ -959,6 +961,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             
                                                                         <div class="mobile-properties__quality">
                                                                             ${offerItemQuality}
+                                                                            <div class="mobile-properties__quality-tooltip"></div>
                                                                         </div> 
                                                 
                                                                     </div>
@@ -1163,6 +1166,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             
                                                                         <div class="mobile-properties__quality">
                                                                             ${offerItemQuality}
+                                                                            <div class="mobile-properties__quality-tooltip"></div>
                                                                         </div> 
                                                 
                                                                     </div>
@@ -1248,6 +1252,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             
                                                                         <div class="mobile-properties__quality">
                                                                             ${offerItemQuality}
+                                                                            <div class="mobile-properties__quality-tooltip"></div>
                                                                         </div> 
                                                 
                                                                     </div>
@@ -1330,6 +1335,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             
                                                                         <div class="mobile-properties__quality">
                                                                             ${offerItemQuality}
+                                                                            <div class="mobile-properties__quality-tooltip"></div>
                                                                         </div> 
                                                 
                                                                     </div>
